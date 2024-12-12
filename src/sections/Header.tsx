@@ -13,7 +13,7 @@ export const HeaderComponent = () => {
             <ArrowRight className="h-4 w-4 inline-flex justify-center items-center" />
             </div>
           </div>
-          <div className='py-5 px-5'>
+          <div className='py-5 px-10'>
             <div className="container">
               <div className='flex items-center justify-between'>
               <Image src={Logo} alt="expansion ai logo" height={100} width={100} />
