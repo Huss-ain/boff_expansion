@@ -7,6 +7,7 @@ import avatar6 from "@/assets/avatar-6.png";
 import avatar7 from "@/assets/avatar-7.png";
 import avatar8 from "@/assets/avatar-8.png";
 import avatar9 from "@/assets/avatar-9.png";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -65,6 +66,47 @@ const testimonials = [
   },
 ];
 
+const firstColumn = testimonials.slice(0, 3);
+const secondColumn = testimonials.slice(3, 6);
+const thirdColumn = testimonials.slice(6, 9);
+
 export const Testimonials = () => {
-  return null;
+  return ( 
+  <section className="bg-white">
+    <div className="container mx-auto py-0">
+      <div className="flex justify-center">
+        <div className="tag mt-10">Testimonials</div>
+      </div>
+      <h2 className="section-title  mt-7">What our users say</h2>
+      <p className="section-description">Neogulf is the essential tool for CEO's and revenue teams with an eye
+        for expansion into the lucrative Middle East market
+      </p>   
+      <div className="items-center flex flex-col gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
+        {firstColumn.map(({text, imageSrc, name, username }) => (
+          <div className="card">
+            <div>{text}</div>
+            <div className="flex items-center gap-2 mt-5">
+              <Image 
+              src={imageSrc} 
+              alt={name}
+              width={40}
+              height={40} 
+              className="h-10 w-10 rounded-full"
+              />
+              <div className="flex flex-col">
+                <div className="font-medium tracking-tight leading-5">{name}</div>
+                <div className="leading-5 tracking-tight">{username}</div>
+              </div>
+
+
+
+            </div>
+          </div>
+        ))}
+      </div> 
+    </div>
+
+
+  </section>
+  );
 };

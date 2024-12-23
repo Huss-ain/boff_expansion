@@ -1,0 +1,104 @@
+'use client';
+import Tag from "@/components/tag";
+import Image from "next/image";
+import FeatureCard from "@/components/FeatureCards"; 
+import Avatar from "@/components/Avatar";
+import avatar1 from "@/assets/arabman 1.jpg";
+import avatar2 from "@/assets/arabman2.jpg";
+import avatar3 from "@/assets/arabwoman 1.jpg";
+import avatar4 from "@/assets/arabwoman 2.jpg";
+import middleEast from "@/assets/middle-east map.jpg";
+import leads from "@/assets/leads image.png";
+
+
+const features = [
+    
+];
+
+export function Features() {
+    return (
+        <section className="py-24">
+            <div className="container mx-auto px-4">
+                <div className="flex justify-center">
+                    <div  className="tag "> Features</div>
+                </div>
+                <h2 className="text-center text-3xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter bg-gradient-to-b from-black to-[#D8AE7E] text-transparent bg-clip-text  mt-7 ml-6">A new method for <span className="">market entry</span></h2>
+                <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 md:col-start-2 lg:grid-cols-3 items-stretch items-center justify-items-center">
+                    <FeatureCard
+                        title = "Instant leads & discovery"
+                        description="We'll start the discovery process to find you potential customers"
+                    >
+                        <div>
+                            <Image
+                            src= {leads}
+                            alt="sales leads image"
+                            height={260}
+                            width={260}
+                            className="rounded"
+                            />
+                        </div>
+                    </FeatureCard>
+                    <FeatureCard
+                        title = "Local SDR professionals"
+                        description="Culture and language aware professionals that can take care of pre and post sales support"
+                    >
+                        <div className="aspect-video flex items-center justify-center">
+                            <Avatar className="border-yellow-100 z-40">
+                                <Image 
+                                src={avatar1} 
+                                alt="picture of arab man"
+                                className="w-16 h-16 object-cover"
+                                />
+                            </Avatar>
+                            <Avatar className="-ml-6 border-yellow-500 z-30">
+                                <Image 
+                                src={avatar3} 
+                                alt="picture of arab man2"
+                                className="w-16 h-16 object-cover"
+                                />
+                            </Avatar>
+                            <Avatar className="-ml-6 z-20 ">
+                                <Image 
+                                src={avatar2} 
+                                alt="picture of arab woman"
+                                className="w-16 h-16 object-cover"
+                                />
+                            </Avatar>
+                            <Avatar className="-ml-6 border-yellow-700">
+                                <Image 
+                                src={avatar4} 
+                                alt="picture of arab woman"
+                                className="w-16 h-16 object-cover"
+                                />
+                            </Avatar>
+                        </div>
+                    </FeatureCard>
+                    <FeatureCard
+                        title = "Fully compliant across the region"
+                        description="In a matter of days, you'll be ready to sell wherever the opportunities exist"
+                    >
+                        <div className="relative">
+                            <div className="absolute inset-0 bg-yellow-100 opacity-20"></div>
+                            <Image
+                            src={middleEast}
+                            alt="map of middle east"
+                            className="rounded aspect-square border border-yellow-950 h-56"
+                            
+                            />
+                            
+                        </div>
+                        </FeatureCard>      
+                </div>
+                <div>
+                    {features.map((feature) => (
+                        <div key={feature}>
+                            <span></span>
+                            <span>{feature}</span>
+                         </div>
+                    ))}
+                </div>
+            </div>
+
+        </section>
+    );
+}

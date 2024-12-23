@@ -5,7 +5,7 @@ import MenuIcon from '@/assets/menu.svg';
 
 export const HeaderComponent = () => {
    return (
-      <header className='sticky top-0 backdrop-blur-sm z-20'>
+      <header className='sticky top-0 backdrop-blur-sm z-50'>
       <div className="flex justify-center items-center py-3 bg-black text-white text-sm gap-3">
         <p className='text-[#FFE0B5] hidden md:block'>Expand your sales to the arab world instantly</p>
             <div className="inline-flex gap-1 items-center"> 
