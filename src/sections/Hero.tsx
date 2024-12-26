@@ -1,12 +1,25 @@
+"use client";
 import ArrowIcon from '@/assets/arrow-right.svg';
 import Stikan from '@/assets/gold stikaan.png';
 import Dates from '@/assets/Dates.png';
 import Globe from '@/assets/gold earth.png';
 import Image from 'next/image';
+import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
+import { useRef } from 'react';
 
 export const Hero = () => {
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start end", "end start"]
+  });
+  const translateY = useTransform(scrollYProgress, [0,1], [150, -150]);
+
+  useMotionValueEvent(translateY, 'change', (latestValue) => 
+    console.log(latestValue)
+  );
   return (
-    <section className='pt-8 pb-2 md:pt-5 md:pb-10 bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,_#183EC2,_#EAEEFE_70%)] overflow-x-clip'>
+    <section ref={heroRef} className='pt-8 pb-2 md:pt-5 md:pb-10 bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,_#183EC2,_#EAEEFE_70%)] overflow-x-clip'>
       <div className="container">
         <div className='md:flex items-center'>
           <div className='md:w-[600px] lg:ml-[calc(50%-630px+10px)] xl:ml-[calc(50%-600px+10px)'>
@@ -24,19 +37,34 @@ export const Hero = () => {
             </div>
           </div>
         <div className='mt-16 md:mt-0 h-[648px] md:flex-1 relative'>
-          <Image src={Stikan} 
+          <motion.img src={Stikan.src} 
           alt='stikaan with gold in it' 
           className='md:absolute md:h-full md:w-auto md:max-w-none md:right-[-300px] lg:right-[50px] xl:right-[50px]'
+          animate= {{
+            translateY: [-30, 30]
+          }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "mirror",
+            duration: 3,
+            ease: 'easeInOut'
+          }}
           />
-          <Image src={Dates} 
+          <motion.img src={Dates.src} 
           width={220} height={220} 
           alt='a single nakhla' 
           className='hidden md:block -top-100 -left-20 md:absolute'
+          style= {{
+            translateY: translateY,
+          }}
           />
-          <Image src={Globe}
+          <motion.img src={Globe.src}
           width={220}
           alt='Globe image'
           className='hidden lg:block absolute bottom-0 right-[-100px] lg:mb-[-50px] xl:right-[-100px] xl:mb-[-400px]' 
+          style= {{
+            translateY: translateY,
+          }}
           />
         </div>
         </div>

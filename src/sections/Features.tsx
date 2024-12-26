@@ -22,7 +22,15 @@ export function Features() {
                 <div className="flex justify-center">
                     <div  className="tag "> Features</div>
                 </div>
+                <div className="max-w-[740px] mx-auto">
                 <h2 className="text-center text-3xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter bg-gradient-to-b from-black to-[#D8AE7E] text-transparent bg-clip-text  mt-7 ml-6">A new method for <span className="">market entry</span></h2>
+                <p className="section-description"> 
+                    Don't wait months for feasibility plans and assessments, 
+                    start testing the market immediately with Neogulf. From initial leads to
+                    professionals on the ground, we ensure your expansion is merely
+                    a process and not bet.
+                </p>
+                </div>
                 <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 md:col-start-2 lg:grid-cols-3 items-stretch items-center justify-items-center">
                     <FeatureCard
                         title = "Instant leads & discovery"
