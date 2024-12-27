@@ -17,7 +17,7 @@ const features = [
 
 export function Features() {
     return (
-        <section className="py-24">
+        <section id="features" className="py-24">
             <div className="container mx-auto px-4">
                 <div className="flex justify-center">
                     <div  className="tag "> Features</div>
@@ -28,7 +28,7 @@ export function Features() {
                     Don't wait months for feasibility plans and assessments, 
                     start testing the market immediately with Neogulf. From initial leads to
                     professionals on the ground, we ensure your expansion is merely
-                    a process and not bet.
+                    a process and not a gamble.
                 </p>
                 </div>
                 <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 md:col-start-2 lg:grid-cols-3 items-stretch items-center justify-items-center">

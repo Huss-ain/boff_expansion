@@ -99,7 +99,7 @@ const TestimonalColumn = (props: { className?: string; testimonials: typeof test
 
 export const Testimonials = () => {
   return ( 
-  <section className="bg-white">
+  <section id="testimonials" className="bg-white">
     <div className="container mx-auto py-0">
       <div className="max-w-[740px] mx-auto ">
         <div className="flex justify-center">

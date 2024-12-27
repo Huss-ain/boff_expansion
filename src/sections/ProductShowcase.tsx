@@ -1,11 +1,13 @@
+"use client";
 import Productimage from '@/assets/product-image-neogulf.png'
 import Dalla from '@/assets/Dalla.png'
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 
 export const ProductShowcase = () => {
   return (
-  <section className="bg-gradient-to-b from-[#ffffff] to-[#d2dcff] py-24 overflow-x-clip">
+  <section id="product" className="bg-gradient-to-b from-[#ffffff] to-[#d2dcff] py-24 overflow-x-clip">
     <div className="container mx-auto px-4">
       <div className="mx-w-[740px] mx-auto">
         <div className="flex justify-center">
@@ -20,12 +22,21 @@ export const ProductShowcase = () => {
           alt="product image"
           className='w-full mt-6' 
         />
-        <Image 
-          src={Dalla} 
+        <motion.img 
+          src={Dalla.src} 
           alt="Dalla gold"
           height={362}
           width={362}
           className='hidden md:block md:h-[180px] md:w-[180px] md:left-16 absolute left-0 md:-bottom-40 lg:h-[292px] lg:w-[292px] lg:left-0 transform -translate-x-48 -translate-y-40 ' 
+          animate= {{
+            translateY: [-30, 30]
+          }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "mirror",
+            duration: 3,
+            ease: 'easeInOut'
+          }}
         />
         
         </div>

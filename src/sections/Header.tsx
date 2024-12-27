@@ -19,11 +19,10 @@ export const HeaderComponent = () => {
               <Image src={Logo} alt="expansion ai logo" height={100} width={100} />
               <MenuIcon className= "h-5 w-5 md:hidden"/>
               <nav className="hidden md:flex gap-6 text-black/60 items-center">
-                <a href="#">About</a>
-                <a href="#">Growth</a>
-                <a href="#">Product</a>
-                <a href="#">Who we are</a>
-                <a href="#">Contact</a>
+                <a href="#product">Product</a>
+                <a href="#features">Features</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#team">Team</a>
                 <button className='bg-black text-white px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center tracking-tight'>Book a call</button>
 
 

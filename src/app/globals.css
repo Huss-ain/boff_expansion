@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    /* Enable smooth scrolling globally */
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
 @layer components {
     .btn {
         @apply px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center tracking-tight;
