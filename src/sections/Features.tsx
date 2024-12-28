@@ -1,5 +1,5 @@
 'use client';
-import Tag from "@/components/it tag";
+import Tag from "@/components/Tag";
 import Image from "next/image";
 import FeatureCard from "@/components/FeatureCards"; 
 import Avatar from "@/components/Avatar";
