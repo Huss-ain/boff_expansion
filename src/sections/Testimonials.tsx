@@ -1,3 +1,4 @@
+'use client';
 import avatar1 from "@/assets/avatar-1.png";
 import avatar2 from "@/assets/avatar-2.png";
 import avatar3 from "@/assets/avatar-3.png";
@@ -9,61 +10,63 @@ import avatar8 from "@/assets/avatar-8.png";
 import avatar9 from "@/assets/avatar-9.png";
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
+import { motion } from "framer-motion";
+import React from "react";
 
 const testimonials = [
   {
-    text: "As a seasoned designer always on the lookout for innovative tools, Framer.com instantly grabbed my attention.",
+    text: "I didn't ever think accessing the UAE medical market would be this fast. This is innovation at its finest.",
     imageSrc: avatar1.src,
-    name: "Jamie Rivera",
-    username: "@jamietechguru00",
+    name: "Riv Maddison",
+    username: "@RivMedicine",
   },
   {
-    text: "Our team's productivity has skyrocketed since we started using this tool. ",
+    text: "Sales teams in scaleups who navigate lots of markets need this tool that has become indespensible to us.",
     imageSrc: avatar2.src,
-    name: "Josh Smith",
-    username: "@jjsmith",
+    name: "Michele Von Haltz",
+    username: "@Mvh1990",
   },
   {
-    text: "This app has completely transformed how I manage my projects and deadlines.",
+    text: "Running a fintech means we need to navigate so much local compliance, which now Neogulf does in days.",
     imageSrc: avatar3.src,
-    name: "Morgan Lee",
-    username: "@morganleewhiz",
+    name: "David Hammers",
+    username: "@HammersDJ1666",
   },
   {
-    text: "I was amazed at how quickly we were able to integrate this app into our workflow.",
-    imageSrc: avatar4.src,
-    name: "Casey Jordan",
-    username: "@caseyj",
-  },
-  {
-    text: "Planning and executing events has never been easier. This app helps me keep track of all the moving parts, ensuring nothing slips through the cracks.",
+    text: "Kudos to Hussain and the team at Neogulf who opened opportunites for us in defence tech we could have only dreamed of. ",
     imageSrc: avatar5.src,
-    name: "Taylor Kim",
-    username: "@taylorkimm",
+    name: "Isaac Cohen",
+    username: "@militarymile",
   },
   {
-    text: "The customizability and integration capabilities of this app are top-notch.",
+    text: "Couldn't be happier with our expansion into the clinical trials market in the gulf.",
+    imageSrc: avatar4.src,
+    name: "Trevor AbdulKareem",
+    username: "@abdulkareem1985",
+  },
+  {
+    text: "We're really proud of our partnership with Neogulf to bring life-changing cancer diagnosis technologies to the Middle East, starting with Saudi Arabia.",
     imageSrc: avatar6.src,
-    name: "Riley Smith",
-    username: "@rileysmith1",
+    name: "Dr. Rianne Molsley",
+    username: "@drswanseahill23",
   },
   {
-    text: "Adopting this app for our team has streamlined our project management and improved communication across the board.",
+    text: "Neogulf has been impressive in helping us find commercial deals to help protect critical infrastructure in the energy sector.",
     imageSrc: avatar7.src,
-    name: "Jordan Patels",
-    username: "@jpatelsdesign",
+    name: "Michael Ings",
+    username: "@ingscybersec",
   },
   {
-    text: "With this app, we can easily assign tasks, track progress, and manage documents all in one place.",
+    text: "Very pleased to work with Hussain and our dedicated team in Qatar who have made our growth journey from HK even more exciting.",
     imageSrc: avatar8.src,
-    name: "Sam Dawson",
-    username: "@dawsontechtips",
+    name: "Daphne Li",
+    username: "@lilicheng2021",
   },
   {
-    text: "Its user-friendly interface and robust features support our diverse needs.",
+    text: "Support is remarkable. This is how it's meant to be done. Even when prospects are slow to reply, the chasing up was very well thought through.",
     imageSrc: avatar9.src,
-    name: "Casey Harper",
-    username: "@casey09",
+    name: "Yuri Bilov",
+    username: "@bilovyurialexander",
   },
 ];
 
@@ -71,30 +74,49 @@ const firstColumn = testimonials.slice(0, 3);
 const secondColumn = testimonials.slice(3, 6);
 const thirdColumn = testimonials.slice(6, 9);
 
-const TestimonalColumn = (props: { className?: string; testimonials: typeof testimonials}) => (
-  <div className={twMerge("items-center flex flex-col gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]", props.className)}>
-          {props.testimonials.map(({text, imageSrc, name, username }) => (
-            <div className="card">
-              <div>{text}</div>
-              <div className="flex items-center gap-2 mt-5">
-                <Image 
-                src={imageSrc} 
-                alt={name}
-                width={40}
-                height={40} 
-                className="h-10 w-10 rounded-full"
-                />
-                <div className="flex flex-col">
-                  <div className="font-medium tracking-tight leading-5">{name}</div>
-                  <div className="leading-5 tracking-tight">{username}</div>
-                </div>
+const TestimonalColumn = (props: { className?: string; testimonials: typeof testimonials; duration?: number}) => (
+  <div className={props.className}>
+    <motion.div animate={{
+      translateY: '-50%',
+    }} 
+      transition={{
+        duration: props.duration || 10,
+        repeat: Infinity,
+        ease: 'linear',
+        repeatType: "loop",
+      }}
+      
+      className="items-center flex flex-col gap-6  ">
+            
+            {[...new Array(2)].fill(0).map((_, index) => (
+              <React.Fragment key={index}>
+                {props.testimonials.map(({text, imageSrc, name, username }) => (
+                  <div className="card">
+                    <div>{text}</div>
+                    <div className="flex items-center gap-2 mt-5">
+                      <Image 
+                      src={imageSrc} 
+                      alt={name}
+                      width={40}
+                      height={40} 
+                      className="h-10 w-10 rounded-full"
+                      />
+                      <div className="flex flex-col">
+                        <div className="font-medium tracking-tight leading-5">{name}</div>
+                        <div className="leading-5 tracking-tight">{username}</div>
+                      </div>
 
 
 
-              </div>
-            </div>
-          ))}
-        </div> 
+                    </div>
+                  </div>
+                  ))}
+              </React.Fragment>
+            ))}
+            
+            
+          </motion.div> 
+        </div>
 )
 
 export const Testimonials = () => {
@@ -110,13 +132,13 @@ export const Testimonials = () => {
           for expansion into the lucrative Middle East market
         </p> 
       </div>
-      <div className="flex justify-center gap-6"> 
-        <TestimonalColumn testimonials={firstColumn} />
-        <TestimonalColumn testimonials={secondColumn} 
-        className="hidden md:flex"
+      <div className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[738px] overflow-hidden"> 
+        <TestimonalColumn testimonials={firstColumn} duration={15} />
+        <TestimonalColumn testimonials={secondColumn} duration={19} 
+        className="hidden md:block"
         />
-        <TestimonalColumn testimonials={thirdColumn} 
-        className="hidden lg:flex"
+        <TestimonalColumn testimonials={thirdColumn} duration={17} 
+        className="hidden lg:block"
         />
         
       </div> 

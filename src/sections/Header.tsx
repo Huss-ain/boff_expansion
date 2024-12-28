@@ -23,8 +23,9 @@ export const HeaderComponent = () => {
                 <a href="#features">Features</a>
                 <a href="#testimonials">Testimonials</a>
                 <a href="#team">Team</a>
-                <button className='bg-black text-white px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center tracking-tight'>Book a call</button>
-
+                <a href="https://calendly.com/hussain-softbase/30min" target='_blank' rel='noopener noreferrer'>
+                  <button className='bg-black text-white px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center tracking-tight'>Book a call</button>
+                </a>
 
               </nav>
               </div>

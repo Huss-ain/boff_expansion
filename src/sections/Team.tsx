@@ -28,7 +28,7 @@ export const Team = () => {
     },
     {
       image: DrAbdullah,
-      name: "Dr. Abdullah Al-Hashem",
+      name: "Prof. Abdullah Al-Hashem",
       title: "Chairman of the advisory board",
       description: "Held the role of deputy secretary general in the GCC for environmental and human affairs as well as diplomatic positions in Washington.",
       alt: "Dr Abdullah"

@@ -29,11 +29,15 @@ export const Hero = () => {
               Neogulf lets every tech company launch in the middle east market without spending months and millions.
             </p>
             <div className="flex gap-1 items-center mt-[30px] ml-10">
-              <button className="btn btn-primary">Book a call</button>
+              <a href="https://calendly.com/hussain-softbase/30min" target='_blank' rel="noopener noreferrer">
+                <button className="btn btn-primary">Book a call</button>
+              </a>
+              <a href="#product">
               <button className="btn btn-text gap-1">
                 <span>Learn more</span>
                 <ArrowIcon className="h-5 w-5"/>
               </button>
+              </a>
             </div>
           </div>
         <div className='mt-16 md:mt-0 h-[648px] md:flex-1 relative'>
