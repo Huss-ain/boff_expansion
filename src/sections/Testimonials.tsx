@@ -15,7 +15,7 @@ import React from "react";
 
 const testimonials = [
   {
-    text: "I didn't ever think accessing the UAE medical market would be this fast. This is innovation at its finest.",
+    text: "I didn\'t ever think accessing the UAE medical market would be this fast. This is innovation at its finest.",
     imageSrc: avatar1.src,
     name: "Riv Maddison",
     username: "@RivMedicine",
@@ -39,13 +39,13 @@ const testimonials = [
     username: "@militarymile",
   },
   {
-    text: "Couldn't be happier with our expansion into the clinical trials market in the gulf.",
+    text: "Couldn\'t be happier with our expansion into the clinical trials market in the gulf.",
     imageSrc: avatar4.src,
     name: "Trevor AbdulKareem",
     username: "@abdulkareem1985",
   },
   {
-    text: "We're really proud of our partnership with Neogulf to bring life-changing cancer diagnosis technologies to the Middle East, starting with Saudi Arabia.",
+    text: "We\'re really proud of our partnership with Neogulf to bring life-changing cancer diagnosis technologies to the Middle East, starting with Saudi Arabia.",
     imageSrc: avatar6.src,
     name: "Dr. Rianne Molsley",
     username: "@drswanseahill23",
@@ -63,7 +63,7 @@ const testimonials = [
     username: "@lilicheng2021",
   },
   {
-    text: "Support is remarkable. This is how it's meant to be done. Even when prospects are slow to reply, the chasing up was very well thought through.",
+    text: "Support is remarkable. This is how it\'s meant to be done. Even when prospects are slow to reply, the chasing up was very well thought through.",
     imageSrc: avatar9.src,
     name: "Yuri Bilov",
     username: "@bilovyurialexander",
