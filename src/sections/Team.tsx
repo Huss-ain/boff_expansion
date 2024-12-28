@@ -1,10 +1,10 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import DrAbdullah from "@/assets/Dr_Abdullah_Profile.png";
 import Hussain from "@/assets/Hussain_profile.png";
 
-// Explicitly type the props for TeamMember
+// Update the interface to reflect StaticImageData for the image prop
 interface TeamMemberProps {
-  image: string;
+  image: StaticImageData;  // Correct type for image when using next/image
   name: string;
   title: string;
   description: string;
@@ -32,7 +32,7 @@ export const Team = () => {
       image: Hussain,
       name: "Hussain Ayed",
       title: "Director",
-      description: "Seasoned tech founder in the R&D, education, life sciences and marketing sectors across EMEA",
+      description: "Seasoned tech founder in the R&D, education, life sciences, and marketing sectors across EMEA",
       alt: "Hussain"
     },
     {
