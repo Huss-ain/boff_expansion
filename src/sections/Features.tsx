@@ -25,7 +25,7 @@ export function Features() {
                 <div className="max-w-[740px] mx-auto">
                 <h2 className="text-center text-3xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter bg-gradient-to-b from-black to-[#D8AE7E] text-transparent bg-clip-text  mt-7 ml-6">A new method for <span className="">market entry</span></h2>
                 <p className="section-description"> 
-                    Don't wait months for feasibility plans and assessments, 
+                    Don&apos;t wait months for feasibility plans and assessments, 
                     start testing the market immediately with Neogulf. From initial leads to
                     professionals on the ground, we ensure your expansion is merely
                     a process and not a gamble.
