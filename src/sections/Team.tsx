@@ -2,7 +2,16 @@ import Image from "next/image";
 import DrAbdullah from "@/assets/Dr_Abdullah_Profile.png";
 import Hussain from "@/assets/Hussain_profile.png";
 
-const TeamMember = ({ image, name, title, description, alt }) => (
+// Explicitly type the props for TeamMember
+interface TeamMemberProps {
+  image: string;
+  name: string;
+  title: string;
+  description: string;
+  alt: string;
+}
+
+const TeamMember = ({ image, name, title, description, alt }: TeamMemberProps) => (
   <div className="flex flex-col items-center p-6 max-w-sm">
     <Image
       src={image}
