@@ -8,6 +8,29 @@ const dmSans = DM_Sans({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Neogulf - Tech for the Middle East",
   description: "Expand your tech to the world's richest market",
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon.ico', type: 'image/x-icon' },
+    ],
+  },
+    // You can also add more icon formats for better support
+  openGraph: {
+    title: "Neogulf - Tech for the Middle East",
+    description: "Expand your tech to the world's richest market",
+    url: 'https://neogulf.com', // Replace with your actual URL
+    siteName: 'Neogulf',
+    images: [
+      {
+        url: '/og-image.png', // Add this image to your public folder
+        width: 1200,
+        height: 630,
+        alt: 'Neogulf - Tech for the Middle East',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
@@ -17,6 +40,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="relative">
+      <head>
+         <link rel="icon" href="/favicon.ico" />
+      </head>
       <body className={clsx(dmSans.className, "antialiased bg-[#EAEEFE]")}>
         {children}
       </body>
