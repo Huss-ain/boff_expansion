@@ -15,7 +15,7 @@ import React from "react";
 
 const testimonials = [
   {
-    text: "I didn&apos;t  ever think accessing the UAE medical market would be this fast. This is innovation at its finest.",
+    text: "I didn\'t  ever think accessing the UAE medical market would be this fast. This is innovation at its finest.",
     imageSrc: avatar1.src,
     name: "Riv Maddison",
     username: "@RivMedicine",
