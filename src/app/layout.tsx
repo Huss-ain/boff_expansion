@@ -6,8 +6,8 @@ import clsx from "clsx";
 const dmSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Light Saas Landing Page",
-  description: "Template created by Frontend Tribe",
+  title: "Neogulf - Tech for the Middle East",
+  description: "Expand your tech to the world's richest market",
 };
 
 export default function RootLayout({
