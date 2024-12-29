@@ -8,13 +8,11 @@ const dmSans = DM_Sans({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Neogulf - Tech for the Middle East",
   description: "Expand your tech to the world's richest market",
-  icons: {
-    icon: [
-      { url: '/favicon.ico' },
-      { url: '/favicon.ico', type: 'image/x-icon' },
-    ],
-  },
-    // You can also add more icon formats for better support
+  icons: [
+    { rel: 'icon', url: '/favicon.ico', type: 'image/x-icon' },
+    { rel: 'shortcut icon', url: '/favicon.ico', type: 'image/x-icon' }
+  ],
+
   openGraph: {
     title: "Neogulf - Tech for the Middle East",
     description: "Expand your tech to the world's richest market",
