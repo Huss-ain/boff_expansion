@@ -56,8 +56,8 @@ export const Team = () => {
             Advisory Board
           </h2>
           <p className="section-description">
-            Our connections in the Middle East are deeply rooted across government
-            and industry to accelerate
+            Through our deep connections and understanding of government and industry in the Middle East,
+            we position you for instant expansion and sales growth.
           </p>
         </div>
 
