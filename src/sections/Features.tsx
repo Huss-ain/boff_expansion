@@ -19,7 +19,7 @@ type Feature = {
 
 const features: Feature[] = [
   {
-    title: "Instant leads & discovery",
+    title: "Warm intros and vetted leads",
     description: "We'll start the discovery process to find you potential customers.",
     image: (
       <Image
@@ -32,7 +32,7 @@ const features: Feature[] = [
     ),
   },
   {
-    title: "Local SDR professionals",
+    title: "Local BDR professionals",
     description: "Culture and language-aware professionals that can take care of pre- and post-sales support.",
     image: (
       <div className="aspect-video flex items-center justify-center">
@@ -96,8 +96,7 @@ export function Features() {
           </h2>
           <p className="section-description">
             Don&apos;t wait months for feasibility plans and assessments, start testing the market immediately
-            with Neogulf. From initial leads to professionals on the ground, we ensure your expansion is merely
-            a process and not a gamble.
+            with Neogulf. Our AI and professional human BDR in the loop will prepare you to close the deal. 
           </p>
         </div>
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 items-stretch items-center justify-items-center">

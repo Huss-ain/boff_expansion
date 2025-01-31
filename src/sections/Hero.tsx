@@ -24,9 +24,9 @@ export const Hero = () => {
         <div className='md:flex items-center'>
           <div className='md:w-[600px] lg:ml-[calc(50%-630px+10px)] xl:ml-[calc(50%-600px+10px)'>
             <div className="tag ml-10 mt-8">Now live</div>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter bg-gradient-to-tr from-[#3c2a06] to-[#D8AE7E] text-transparent bg-clip-text ml-10 mt-10 max-w-[600px]  leading-tight">Start selling your technology in the Middle East in days</h1>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter bg-gradient-to-tr from-[#3c2a06] to-[#D8AE7E] text-transparent bg-clip-text ml-10 mt-10 max-w-[600px]  leading-tight">AI and human powered BDR for the Middle East market</h1>
             <p className="text-xl text-[#3E3232] tracking-tight mt-6 ml-10">
-              Neogulf lets every tech company launch in the middle east market without spending months and millions.
+              Tailor your offering and start selling to Middle Eastern governments and businesses in a week.
             </p>
             <div className="flex gap-1 items-center mt-[30px] ml-10">
               <a href="https://calendly.com/hussain-softbase/30min" target='_blank' rel="noopener noreferrer">
