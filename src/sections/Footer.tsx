@@ -61,6 +61,7 @@ export const Footer = () => {
           <nav className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3">
             <a href="#product" className="text-purple-200 hover:text-white transition-colors whitespace-nowrap">Product</a>
             <a href="#features" className="text-purple-200 hover:text-white transition-colors whitespace-nowrap">Features</a>
+            <a href="#process" className="text-purple-200 hover:text-white transition-colors whitespace-nowrap">How It Works</a>
             <a href="#testimonials" className="text-purple-200 hover:text-white transition-colors whitespace-nowrap">Testimonials</a>
             <a href="#pricing" className="text-purple-200 hover:text-white transition-colors whitespace-nowrap">Pricing</a>
           </nav>

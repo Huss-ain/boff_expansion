@@ -14,9 +14,9 @@ export const HeaderComponent = () => {
         {/* Mobile container - full width centering */}
         <div className="w-full text-center md:hidden">
           <div className="inline-flex gap-2 items-center justify-center">
-            <p className="text-base font-medium">Secure your AI sales team - Next onboarding starts soon</p>
+            <p className="text-base font-medium">Next onboarding starts March/April 2025 - Reserve your spot now</p>
             <span className="bg-white/20 rounded-full px-3 py-1 text-xs font-bold tracking-wide ml-1 animate-pulse-gentle">
-              ACT NOW
+              LIMITED
             </span>
             <ArrowRight className="h-5 w-5 inline-flex justify-center items-center ml-1" />
           </div>
@@ -30,9 +30,9 @@ export const HeaderComponent = () => {
         
         <div className="hidden md:inline-flex gap-2 items-center">
           <span className="font-semibold">🚀</span>
-          <p className="text-lg font-medium">Secure your AI sales team - Next onboarding starts soon</p>
+          <p className="text-lg font-medium">Next onboarding starts March/April 2025 - Reserve your spot now</p>
           <span className="bg-white/20 rounded-full px-3 py-1 text-xs font-bold tracking-wide ml-1 animate-pulse-gentle">
-            ACT NOW
+            LIMITED
           </span>
           <ArrowRight className="h-5 w-5 inline-flex justify-center items-center ml-1" />
         </div>
@@ -108,6 +108,7 @@ export const HeaderComponent = () => {
               <nav className="hidden md:flex gap-6 items-center">
                 <a href="#product" className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Product</a>
                 <a href="#features" className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Features</a>
+                <a href="#process" className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">How It Works</a>
                 <a href="#testimonials" className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Testimonials</a>
                 <a href="#pricing" className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Pricing</a>
                 <a href="https://calendly.com/hussain-softbase/30min" target='_blank' rel='noopener noreferrer'>
