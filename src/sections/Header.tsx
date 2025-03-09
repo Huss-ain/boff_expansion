@@ -2,8 +2,15 @@
 
 import ArrowRight from '@/assets/arrow-right.svg';
 import MenuIcon from '@/assets/menu.svg';
+import { useState } from 'react';
 
 export const HeaderComponent = () => {
+   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+   
+   const toggleMobileMenu = () => {
+     setMobileMenuOpen(!mobileMenuOpen);
+   };
+
    return (
       <header className='sticky top-0 backdrop-blur-sm z-50'>
       {/* Enhanced banner with urgency messaging */}
@@ -104,7 +111,16 @@ export const HeaderComponent = () => {
                 </div>
               </div>
               
-              <MenuIcon className= "h-5 w-5 md:hidden"/>
+              {/* Mobile menu button */}
+              <button 
+                className="h-10 w-10 flex items-center justify-center md:hidden"
+                onClick={toggleMobileMenu}
+                aria-label="Toggle mobile menu"
+              >
+                <MenuIcon className="h-5 w-5"/>
+              </button>
+              
+              {/* Desktop navigation */}
               <nav className="hidden md:flex gap-6 items-center">
                 <a href="#product" className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Product</a>
                 <a href="#features" className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Features</a>
@@ -117,6 +133,58 @@ export const HeaderComponent = () => {
               </nav>
               </div>
             </div>
+          </div>
+          
+          {/* Mobile Navigation Menu */}
+          <div className={`md:hidden bg-white/95 shadow-lg ${mobileMenuOpen ? 'block' : 'hidden'}`}>
+            <nav className="flex flex-col items-center gap-4 py-6">
+              <a 
+                href="#product" 
+                className="text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Product
+              </a>
+              <a 
+                href="#features" 
+                className="text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Features
+              </a>
+              <a 
+                href="#process" 
+                className="text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                How It Works
+              </a>
+              <a 
+                href="#testimonials" 
+                className="text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Testimonials
+              </a>
+              <a 
+                href="#pricing" 
+                className="text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Pricing
+              </a>
+              <a 
+                href="https://calendly.com/hussain-softbase/30min" 
+                target='_blank' 
+                rel='noopener noreferrer'
+                className="mt-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <button className='bg-black text-white px-6 py-3 rounded-lg font-medium text-lg tracking-tight inline-flex items-center justify-center'>
+                  Book a call
+                </button>
+              </a>
+            </nav>
           </div>
           
           {/* Add custom animation */}
