@@ -97,8 +97,8 @@ export const HowItWorks = () => {
                   {step.icon}
                 </div>
                 
-                {/* Step content */}
-                <div className={`sm:w-5/12 ${index % 2 !== 0 ? 'sm:pr-16 text-right' : 'sm:pl-16 text-left'} text-center sm:text-left`}>
+                {/* Step content - Fixed for mobile centering */}
+                <div className={`sm:w-5/12 text-center ${index % 2 !== 0 ? 'sm:text-right sm:pr-16' : 'sm:text-left sm:pl-16'}`}>
                   <h4 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">{step.title}</h4>
                   <p className="text-lg text-gray-700">{step.description}</p>
                 </div>
@@ -114,7 +114,7 @@ export const HowItWorks = () => {
             <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-purple-50 to-blue-50 rounded-bl-3xl -z-10"></div>
               
-              <h4 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+              <h4 className="text-2xl font-bold text-gray-900 mb-6 flex items-center justify-center sm:justify-start">
                 <svg className="w-7 h-7 mr-3 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 </svg>
@@ -136,7 +136,7 @@ export const HowItWorks = () => {
             <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-blue-50 to-purple-50 rounded-bl-3xl -z-10"></div>
               
-              <h4 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+              <h4 className="text-2xl font-bold text-gray-900 mb-6 flex items-center justify-center sm:justify-start">
                 <svg className="w-7 h-7 mr-3 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
@@ -186,17 +186,19 @@ export const HowItWorks = () => {
                 </li>
               </ul>
               
-              <div className="mt-6 pt-6 border-t border-gray-200">
+              <div className="mt-6 pt-6 border-t border-gray-200 text-center sm:text-left">
                 <p className="font-medium text-gray-900">Next Onboarding Cohort:</p>
-                <div className="flex items-center mt-2">
+                <div className="flex items-center mt-2 justify-center sm:justify-start">
                   <svg className="w-5 h-5 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <p className="text-gray-700">Starting <span className="font-semibold">March/April 2025</span> – Limited spots available</p>
                 </div>
-                <a href="https://calendly.com/hussain-softbase/30min" className="inline-block mt-4 bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
-                  Reserve Your Spot
-                </a>
+                <div className="flex justify-center sm:justify-start">
+                  <a href="https://calendly.com/hussain-softbase/30min" className="inline-block mt-4 bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                    Reserve Your Spot
+                  </a>
+                </div>
               </div>
             </div>
           </div>
