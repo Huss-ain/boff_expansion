@@ -1,0 +1,52 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradient Background Circle -->
+  <circle cx="256" cy="256" r="256" fill="url(#gradient)" />
+  
+  <!-- Heart icon -->
+  <path 
+    d="M256 383.35l-48.33-44C116.67 264.36 66.67 210.28 66.67 170.5c0-51.2 40.53-93.5 93.33-93.5 29.87 0 58.53 13.97 77.33 35.88 18.8-21.91 47.47-35.88 77.33-35.88 52.8 0 93.33 42.3 93.33 93.5 0 39.78-50 93.86-140.67 168.85l-10.99 10.99L256 383.35z" 
+    fill="none" 
+    stroke="white" 
+    stroke-width="24" 
+    stroke-linecap="round" 
+    stroke-linejoin="round"
+  />
+  
+  <!-- Emotion wave lines -->
+  <path 
+    d="M336.67 170.5c0-23.27-10.4-33.67-26.67-33.67" 
+    stroke="white" 
+    stroke-width="24" 
+    stroke-linecap="round"
+  />
+  
+  <path 
+    d="M176.67 170.5c0-23.27 10.4-33.67 26.67-33.67" 
+    stroke="white" 
+    stroke-width="24" 
+    stroke-linecap="round"
+  />
+  
+  <!-- Happy smile -->
+  <path 
+    d="M209.67 238.5c0 0 16.67 16.67 46.33 16.67s46.33-16.67 46.33-16.67" 
+    stroke="white" 
+    stroke-width="24" 
+    stroke-linecap="round" 
+    stroke-linejoin="round"
+  />
+  
+  <!-- Connection dots -->
+  <circle cx="426.67" cy="85.33" r="8" fill="white" />
+  <circle cx="85.33" cy="85.33" r="8" fill="white" />
+  <circle cx="426.67" cy="426.67" r="8" fill="white" />
+  <circle cx="85.33" cy="426.67" r="8" fill="white" />
+  
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="gradient" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#9333ea" /> <!-- purple-600 -->
+      <stop offset="100%" stop-color="#3b82f6" /> <!-- blue-500 -->
+    </linearGradient>
+  </defs>
+</svg> 
