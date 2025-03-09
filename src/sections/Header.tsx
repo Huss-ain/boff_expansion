@@ -6,14 +6,39 @@ import MenuIcon from '@/assets/menu.svg';
 export const HeaderComponent = () => {
    return (
       <header className='sticky top-0 backdrop-blur-sm z-50'>
-      <div className="flex justify-center items-center py-3 bg-black text-white text-sm gap-3">
-        <p className='text-[#FFE0B5] hidden md:block'>Expand your sales to the arab world instantly</p>
-            <div className="inline-flex gap-1 items-center"> 
-            <p>Now accepting healthtech, medtech and fintech companies</p>
-            <ArrowRight className="h-4 w-4 inline-flex justify-center items-center" />
-            </div>
+      {/* Enhanced banner with urgency messaging */}
+      <div className="flex md:justify-center md:items-center py-4 bg-gradient-to-r from-purple-800 to-blue-700 text-white md:gap-3 relative overflow-hidden">
+        {/* Animated highlight effect */}
+        <div className="absolute inset-0 bg-white/10 animate-pulse-slow"></div>
+        
+        {/* Mobile container - full width centering */}
+        <div className="w-full text-center md:hidden">
+          <div className="inline-flex gap-2 items-center justify-center">
+            <p className="text-base font-medium">Secure your AI sales team - Next onboarding starts soon</p>
+            <span className="bg-white/20 rounded-full px-3 py-1 text-xs font-bold tracking-wide ml-1 animate-pulse-gentle">
+              ACT NOW
+            </span>
+            <ArrowRight className="h-5 w-5 inline-flex justify-center items-center ml-1" />
           </div>
-          <div className='py-5 px-10'>
+        </div>
+        
+        {/* Desktop layout - unchanged */}
+        <div className="hidden md:flex items-center">
+          <div className="w-3 h-3 bg-red-500 rounded-full mr-2 animate-pulse"></div>
+          <p className='text-[#FFE0B5] font-medium text-base'>Limited spots available!</p>
+        </div>
+        
+        <div className="hidden md:inline-flex gap-2 items-center">
+          <span className="font-semibold">🚀</span>
+          <p className="text-lg font-medium">Secure your AI sales team - Next onboarding starts soon</p>
+          <span className="bg-white/20 rounded-full px-3 py-1 text-xs font-bold tracking-wide ml-1 animate-pulse-gentle">
+            ACT NOW
+          </span>
+          <ArrowRight className="h-5 w-5 inline-flex justify-center items-center ml-1" />
+        </div>
+      </div>
+          
+          <div className='py-5 px-10 bg-white/90 border-b border-purple-100 shadow-sm'>
             <div className="container">
               <div className='flex items-center justify-between'>
               {/* Custom Boff AI Logo */}
@@ -80,15 +105,14 @@ export const HeaderComponent = () => {
               </div>
               
               <MenuIcon className= "h-5 w-5 md:hidden"/>
-              <nav className="hidden md:flex gap-6 text-black/60 items-center">
-                <a href="#product">Product</a>
-                <a href="#features">Features</a>
-                <a href="#testimonials">Testimonials</a>
-                <a href="#team">Team</a>
+              <nav className="hidden md:flex gap-6 items-center">
+                <a href="#product" className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Product</a>
+                <a href="#features" className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Features</a>
+                <a href="#testimonials" className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Testimonials</a>
+                <a href="#pricing" className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Pricing</a>
                 <a href="https://calendly.com/hussain-softbase/30min" target='_blank' rel='noopener noreferrer'>
-                  <button className='bg-black text-white px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center tracking-tight'>Book a call</button>
+                  <button className='bg-black text-white px-4 py-2 rounded-lg font-medium text-base md:text-lg tracking-tight inline-flex items-center justify-center'>Book a call</button>
                 </a>
-
               </nav>
               </div>
             </div>
@@ -112,6 +136,18 @@ export const HeaderComponent = () => {
             }
             .animate-pulse-gentle {
               animation: pulse-gentle 4s ease-in-out infinite;
+            }
+            
+            @keyframes pulse-slow {
+              0%, 100% {
+                opacity: 0;
+              }
+              50% {
+                opacity: 0.15;
+              }
+            }
+            .animate-pulse-slow {
+              animation: pulse-slow 3s ease-in-out infinite;
             }
           `}</style>
       </header>

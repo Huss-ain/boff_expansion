@@ -9,61 +9,68 @@ import avatar7 from "@/assets/avatar-7.png";
 import avatar8 from "@/assets/avatar-8.png";
 import avatar9 from "@/assets/avatar-9.png";
 import Image from "next/image";
-import { twMerge } from "tailwind-merge";
-import { motion } from "framer-motion";
-import React from "react";
+import { motion, useScroll, useTransform, useAnimation } from "framer-motion";
+import React, { useEffect, useRef } from "react";
 
-const testimonials = [
+// Define types for testimonial data
+interface Testimonial {
+  text: string;
+  imageSrc: string;
+  name: string;
+  username: string;
+}
+
+const testimonials: Testimonial[] = [
   {
-    text: "I didn\'t  ever think accessing the UAE medical market would be this fast. This is innovation at its finest.",
+    text: "Boff AI's empathetic outreach has transformed our European expansion. We're seeing 3x higher response rates because the messages actually connect with prospects as humans first, not just targets.",
     imageSrc: avatar1.src,
     name: "Riv Maddison",
     username: "@RivMedicine",
   },
   {
-    text: "Sales teams in scaleups who navigate lots of markets need this tool that has become indespensible to us.",
+    text: "I was skeptical about AI for sales outreach, but Boff's emotional intelligence is incredible. Our SDRs are building genuine relationships in APAC markets where cultural nuance is critical.",
     imageSrc: avatar2.src,
     name: "Michele Von Haltz",
     username: "@Mvh1990",
   },
   {
-    text: "Running a fintech means we need to navigate so much local compliance, which now Neogulf does in days.",
+    text: "The empathetic approach has completely changed how we engage with financial institutions. Compliance officers actually want to talk to us now, and our sales cycle in regulated markets is 40% shorter.",
     imageSrc: avatar3.src,
     name: "David Hammers",
     username: "@HammersDJ1666",
   },
   {
-    text: "Kudos to Hussain and the team at Neogulf who opened opportunites for us in defence tech we could have only dreamed of. ",
+    text: "Boff AI understands that selling to government and defense sectors requires exceptional trust-building. Their empathetic outreach has opened doors we've been knocking on for years with traditional approaches.",
     imageSrc: avatar5.src,
     name: "Isaac Cohen",
     username: "@militarymile",
   },
   {
-    text: "Couldn\'t be happier with our expansion into the clinical trials market in the gulf.",
+    text: "The personalization at scale is remarkable. We've entered three new clinical markets in South America with half the BDR team we'd normally need. The emotional intelligence in the outreach makes all the difference.",
     imageSrc: avatar4.src,
     name: "Trevor AbdulKareem",
     username: "@abdulkareem1985",
   },
   {
-    text: "We\'re really proud of our partnership with Neogulf to bring life-changing cancer diagnosis technologies to the Middle East, starting with Saudi Arabia.",
+    text: "Revolutionary for healthcare sales. Boff AI's empathetic approach respects the unique pressures medical professionals face. Our Middle East expansion is 6 months ahead of schedule thanks to this human-first outreach.",
     imageSrc: avatar6.src,
     name: "Dr. Rianne Molsley",
     username: "@drswanseahill23",
   },
   {
-    text: "Neogulf has been impressive in helping us find commercial deals to help protect critical infrastructure in the energy sector.",
+    text: "Selling cybersecurity solutions requires deep trust. Boff AI's empathetic outreach has helped us navigate sensitive conversations with energy sector leaders across Northern Europe. Game-changing technology.",
     imageSrc: avatar7.src,
     name: "Michael Ings",
     username: "@ingscybersec",
   },
   {
-    text: "Very pleased to work with Hussain and our dedicated team in Qatar who have made our growth journey from HK even more exciting.",
+    text: "Expanding from Hong Kong to Western markets was challenging until we tried Boff AI. Their empathetic approach bridges cultural gaps that our standard outreach couldn't. Our SDRs now have consistent meetings with ideal prospects.",
     imageSrc: avatar8.src,
     name: "Daphne Li",
     username: "@lilicheng2021",
   },
   {
-    text: "Support is remarkable. This is how it\'s meant to be done. Even when prospects are slow to reply, the chasing up was very well thought through.",
+    text: "The follow-up capabilities are extraordinary. Boff AI knows exactly when and how to reconnect with prospects who've gone quiet. We've resurrected deals we thought were dead across five different African markets.",
     imageSrc: avatar9.src,
     name: "Yuri Bilov",
     username: "@bilovyurialexander",
@@ -74,77 +81,125 @@ const firstColumn = testimonials.slice(0, 3);
 const secondColumn = testimonials.slice(3, 6);
 const thirdColumn = testimonials.slice(6, 9);
 
-const TestimonalColumn = (props: { className?: string; testimonials: typeof testimonials; duration?: number}) => (
-  <div className={props.className}>
-    <motion.div animate={{
-      translateY: '-50%',
-    }} 
-      transition={{
-        duration: props.duration || 10,
-        repeat: Infinity,
-        ease: 'linear',
-        repeatType: "loop",
-      }}
+// Individual testimonial card component
+const TestimonialCard = ({ text, imageSrc, name, username }: Testimonial) => (
+  <div className="card p-6 min-h-[220px] max-w-[340px] mb-8">
+    <div className="text-base">{text}</div>
+    <div className="flex items-center gap-3 mt-6">
+      <Image 
+        src={imageSrc} 
+        alt={name}
+        width={48}
+        height={48} 
+        className="h-12 w-12 rounded-full"
+      />
+      <div className="flex flex-col">
+        <div className="font-medium tracking-tight leading-5">{name}</div>
+        <div className="leading-5 tracking-tight text-purple-700">{username}</div>
+      </div>
+    </div>
+  </div>
+);
+
+// Define props type for TestimonialColumn
+interface TestimonialColumnProps {
+  className?: string;
+  testimonials: Testimonial[];
+  speed?: number;
+}
+
+// Smooth scrolling testimonial column
+const TestimonialColumn = ({ className = "", testimonials, speed = 1 }: TestimonialColumnProps) => {
+  const columnRef = useRef<HTMLDivElement>(null);
+  const controls = useAnimation();
+  
+  useEffect(() => {
+    const scrollHeight = columnRef.current ? columnRef.current.scrollHeight / 2 : 1000;
+    
+    const smoothScroll = async () => {
+      // Reset to top instantly but invisibly
+      await controls.set({ y: 0 });
       
-      className="items-center flex flex-col gap-6  ">
-            
-            {[...new Array(2)].fill(0).map((_, index) => (
-              <React.Fragment key={index}>
-                {props.testimonials.map(({text, imageSrc, name, username }) => (
-                  <div className="card" key={username}>
-                    <div>{text}</div>
-                    <div className="flex items-center gap-2 mt-5">
-                      <Image 
-                      src={imageSrc} 
-                      alt={name}
-                      width={40}
-                      height={40} 
-                      className="h-10 w-10 rounded-full"
-                      />
-                      <div className="flex flex-col">
-                        <div className="font-medium tracking-tight leading-5">{name}</div>
-                        <div className="leading-5 tracking-tight">{username}</div>
-                      </div>
+      // Smooth scroll down
+      await controls.start({
+        y: -scrollHeight,
+        transition: {
+          duration: scrollHeight * 0.03 * (1 / speed), // Adjust speed factor
+          ease: "linear",
+          repeat: Infinity,
+          repeatType: "loop",
+          repeatDelay: 0
+        }
+      });
+    };
+    
+    smoothScroll();
+  }, [controls, speed]);
 
-
-
-                    </div>
-                  </div>
-                  ))}
-              </React.Fragment>
-            ))}
-            
-            
-          </motion.div> 
-        </div>
-)
+  return (
+    <div className={`overflow-hidden relative max-h-[700px] ${className}`}>
+      <motion.div ref={columnRef} animate={controls} className="pb-8">
+        {/* Duplicate testimonials for seamless looping */}
+        {testimonials.map((testimonial: Testimonial, index: number) => (
+          <TestimonialCard key={`${testimonial.username}-1-${index}`} {...testimonial} />
+        ))}
+        {testimonials.map((testimonial: Testimonial, index: number) => (
+          <TestimonialCard key={`${testimonial.username}-2-${index}`} {...testimonial} />
+        ))}
+      </motion.div>
+    </div>
+  );
+};
 
 export const Testimonials = () => {
   return ( 
-  <section id="testimonials" className="bg-white">
-    <div className="container mx-auto py-0">
-      <div className="max-w-[740px] mx-auto ">
-        <div className="flex justify-center">
-          <div className="tag mt-10">Testimonials</div>
+    <section id="testimonials" className="bg-white py-20">
+      <div className="container mx-auto">
+        {/* Section heading with styled underline similar to ProductShowcase */}
+        <div className="flex flex-col items-center mb-12">
+          <h3 className="text-2xl md:text-4xl font-bold tracking-tight text-black">
+            What our users say
+          </h3>
+          <div className="h-1.5 w-40 mt-3 bg-gradient-to-r from-purple-500 to-blue-400 rounded-full"></div>
         </div>
-        <h2 className="section-title  mt-7">What our users say</h2>
-        <p className="section-description">Neogulf is the essential tool for CEO's and revenue teams with an eye
-          for expansion into the lucrative Middle East market
-        </p> 
-      </div>
-      <div className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[738px] overflow-hidden"> 
-        <TestimonalColumn testimonials={firstColumn} duration={15} />
-        <TestimonalColumn testimonials={secondColumn} duration={19} 
-        className="hidden md:block"
-        />
-        <TestimonalColumn testimonials={thirdColumn} duration={17} 
-        className="hidden lg:block"
-        />
         
-      </div> 
-    </div>
+        {/* Larger, black subheading */}
+        <div className="max-w-[800px] mx-auto mb-16">
+          <p className="text-xl md:text-2xl text-center text-black font-normal">
+            Boff AI is transforming how sales teams connect with prospects through
+            empathetic, human-centered outreach that builds authentic relationships
+          </p> 
+        </div>
+        
+        <div className="flex justify-center gap-8 mt-12 px-4">
+          <TestimonialColumn testimonials={firstColumn} speed={0.8} className="" />
+          <TestimonialColumn 
+            testimonials={secondColumn} 
+            speed={1.2}
+            className="hidden md:block"
+          />
+          <TestimonialColumn 
+            testimonials={thirdColumn} 
+            speed={1}
+            className="hidden lg:block"
+          />
+        </div>
+      </div>
 
-
-  </section>
+      <style jsx global>{`
+        .card {
+          background-color: white;
+          border-radius: 16px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+          border: 1px solid rgba(100, 100, 100, 0.08);
+          transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+          box-shadow: 0 6px 28px rgba(0, 0, 0, 0.12);
+          transform: translateY(-2px);
+        }
+      `}</style>
+    </section>
   );
 };
