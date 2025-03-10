@@ -55,7 +55,7 @@ export const HeaderComponent = () => {
             <div className="container">
               <div className='flex items-center justify-between'>
               {/* Custom Boff AI Logo */}
-              <div className="flex items-center">
+              <a href="/" className="flex items-center">
                 {/* Logo icon with pulse effect - Emotional connection icon */}
                 <div className="relative mr-2 md:mr-3">
                   <div className="h-11 w-11 md:h-14 md:w-14 rounded-full bg-gradient-to-br from-purple-600 to-blue-500 flex items-center justify-center shadow-md relative z-10">
@@ -96,17 +96,16 @@ export const HeaderComponent = () => {
                       />
                       
                       {/* Connection dots around */}
-                      <circle cx="20" cy="4" r="0.5" fill="white" />
-                      <circle cx="4" cy="4" r="0.5" fill="white" />
-                      <circle cx="20" cy="20" r="0.5" fill="white" />
-                      <circle cx="4" cy="20" r="0.5" fill="white" />
+                      <circle cx="6" cy="10" r="0.5" fill="white" />
+                      <circle cx="18" cy="10" r="0.5" fill="white" />
+                      <circle cx="12" cy="5" r="0.5" fill="white" />
                     </svg>
                   </div>
+                  
                   {/* Pulse effect */}
-                  <div className="absolute top-0 left-0 w-full h-full rounded-full bg-purple-500 opacity-30 animate-pulse-gentle"></div>
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-400 to-blue-300 blur-md opacity-40 animate-pulse-gentle"></div>
                 </div>
                 
-                {/* Logo text with gradient */}
                 <div className="flex flex-col">
                   <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-none bg-gradient-to-r from-purple-700 to-blue-500 bg-clip-text text-transparent tracking-tight">
                     Boff AI
@@ -115,7 +114,7 @@ export const HeaderComponent = () => {
                     Empathetic outreach
                   </span>
                 </div>
-              </div>
+              </a>
               
               {/* Mobile menu button */}
               <button 
