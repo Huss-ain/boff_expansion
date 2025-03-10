@@ -2,14 +2,20 @@
 
 import ArrowRight from '@/assets/arrow-right.svg';
 import MenuIcon from '@/assets/menu.svg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export const HeaderComponent = () => {
    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+   const pathname = usePathname();
+   const isMiddleEastPage = pathname === '/middle-east';
    
    const toggleMobileMenu = () => {
      setMobileMenuOpen(!mobileMenuOpen);
    };
+
+   // Prefix for navigation links - if on middle-east page, link back to home page
+   const linkPrefix = isMiddleEastPage ? '/' : '';
 
    return (
       <header className='sticky top-0 backdrop-blur-sm z-50'>
@@ -122,11 +128,11 @@ export const HeaderComponent = () => {
               
               {/* Desktop navigation */}
               <nav className="hidden md:flex gap-6 items-center">
-                <a href="#product" className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Product</a>
-                <a href="#features" className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Features</a>
-                <a href="#process" className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">How It Works</a>
-                <a href="#testimonials" className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Testimonials</a>
-                <a href="#pricing" className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Pricing</a>
+                <a href={`${linkPrefix}#product`} className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Product</a>
+                <a href={`${linkPrefix}#features`} className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Features</a>
+                <a href={`${linkPrefix}#process`} className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">How it works</a>
+                <a href={`${linkPrefix}#testimonials`} className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Testimonials</a>
+                <a href={`${linkPrefix}#pricing`} className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Pricing</a>
                 <a href="/middle-east" className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Middle East</a>
                 <a href="https://calendly.com/hussain-softbase/30min" target='_blank' rel='noopener noreferrer'>
                   <button className='bg-black text-white px-4 py-2 rounded-lg font-medium text-base md:text-lg tracking-tight inline-flex items-center justify-center'>Book a call</button>
@@ -140,35 +146,35 @@ export const HeaderComponent = () => {
           <div className={`md:hidden bg-white/95 shadow-lg ${mobileMenuOpen ? 'block' : 'hidden'}`}>
             <nav className="flex flex-col items-center gap-4 py-6">
               <a 
-                href="#product" 
+                href={`${linkPrefix}#product`}
                 className="text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Product
               </a>
               <a 
-                href="#features" 
+                href={`${linkPrefix}#features`}
                 className="text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Features
               </a>
               <a 
-                href="#process" 
+                href={`${linkPrefix}#process`}
                 className="text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                How It Works
+                How it works
               </a>
               <a 
-                href="#testimonials" 
+                href={`${linkPrefix}#testimonials`}
                 className="text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Testimonials
               </a>
               <a 
-                href="#pricing" 
+                href={`${linkPrefix}#pricing`}
                 className="text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
