@@ -245,7 +245,7 @@ export const InteractiveMap = () => {
         digitalAdoption: "63%",
         b2bGrowth: "+17%",
         aiReadiness: "Low-Medium",
-        marketPotential: "$2.4B"
+        marketPotential: "$12.4B"
       }
     },
     { 
@@ -265,7 +265,7 @@ export const InteractiveMap = () => {
         digitalAdoption: "89%",
         b2bGrowth: "+31%",
         aiReadiness: "High",
-        marketPotential: "$18.7B"
+        marketPotential: "$68.7B"
       }
     },
     { 
@@ -285,7 +285,7 @@ export const InteractiveMap = () => {
         digitalAdoption: "78%",
         b2bGrowth: "+14%",
         aiReadiness: "Medium",
-        marketPotential: "$3.8B"
+        marketPotential: "$5.8B"
       }
     },
     { 
@@ -325,7 +325,7 @@ export const InteractiveMap = () => {
         digitalAdoption: "94%",
         b2bGrowth: "+22%",
         aiReadiness: "Very High",
-        marketPotential: "$4.2B"
+        marketPotential: "$34.2B"
       }
     },
     { 
@@ -345,7 +345,7 @@ export const InteractiveMap = () => {
         digitalAdoption: "96%",
         b2bGrowth: "+29%",
         aiReadiness: "Very High",
-        marketPotential: "$14.5B"
+        marketPotential: "$32.5B"
       }
     },
     { 
@@ -365,7 +365,7 @@ export const InteractiveMap = () => {
         digitalAdoption: "72%",
         b2bGrowth: "+16%",
         aiReadiness: "Medium",
-        marketPotential: "$2.8B"
+        marketPotential: "$6.8B"
       }
     },
     { 
@@ -385,7 +385,7 @@ export const InteractiveMap = () => {
         digitalAdoption: "47%",
         b2bGrowth: "+9%",
         aiReadiness: "Emerging",
-        marketPotential: "$0.7B"
+        marketPotential: "$2.7B"
       }
     }
   ];
