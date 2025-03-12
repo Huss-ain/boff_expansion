@@ -105,7 +105,7 @@ export const ProductShowcase = () => {
   <section id="product" className="bg-gradient-to-b from-[#f9f7ff] to-[#eef5ff] py-24 overflow-x-clip">
     <div className="container mx-auto px-4">
       <div className="mx-w-[740px] mx-auto">
-        <h2 className="text-center text-3xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter bg-gradient-to-r from-[#3c2a06] to-[#422301] text-transparent bg-clip-text mt-7">Prospects are human</h2>
+        <h2 className="text-center text-3xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter bg-gradient-to-r from-[#3c2a06] to-[#422301] text-transparent bg-clip-text mt-7">A human touch to outreach</h2>
         <p className="text-center text-[22px] leading-[30px] tracking-tight mt-7 max-w-[1000px] mx-auto mb-12 text-black"> 
           Connect with people on a human level by developing outreach that takes human needs and motivations into account.
         </p>
