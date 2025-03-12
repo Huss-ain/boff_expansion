@@ -136,11 +136,11 @@ export const ArabicAITech = () => {
                     </div>
                     <div className="ml-3">
                       <div className="flex justify-between">
-                        <p className="text-base font-medium text-gray-900">Not Commission-Based</p>
+                        <p className="text-base font-medium text-gray-900">Aligned Incentives</p>
                         <span className="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full">Aligned Interests</span>
                       </div>
                       <p className="text-sm text-gray-700 mt-1">
-                        Unlike sales agents who focus on quick wins, our retainer model ensures long-term alignment with your sustainable growth goals.
+                        Unlike sales agents who focus on quick wins, our retainer-partnership model ensures long-term alignment with your sustainable growth goals.
                       </p>
                     </div>
                   </div>

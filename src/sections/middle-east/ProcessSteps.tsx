@@ -24,7 +24,7 @@ export const ProcessSteps = () => {
             {/* Step 1 */}
             <div className="flex flex-col md:flex-row items-start mb-12 relative">
               <div className="md:w-1/2 md:pr-12 md:text-right order-2 md:order-1 mt-4 md:mt-0 pl-14 md:pl-0">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Strategic Planning <span className="text-sm font-normal text-gray-500">(2-3 weeks)</span></h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Strategic Planning <span className="text-sm font-normal text-gray-500">(5 days)</span></h3>
                 <div className="bg-white p-4 rounded-xl shadow-md border border-purple-100 inline-block md:text-left">
                   <p className="text-gray-700 text-sm mb-3">
                     We develop a customized market entry strategy based on your specific goals, product, and target markets within the Middle East.
@@ -82,10 +82,10 @@ export const ProcessSteps = () => {
               </div>
               
               <div className="md:w-1/2 md:pl-12 order-3 mt-4 md:mt-0 pl-14 md:pl-12">
-                <h3 className="text-xl font-bold text-gray-900 mb-2"> Technology Deployment <span className="text-sm font-normal text-gray-500">(2 weeks)</span></h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-2"> Technology Deployment <span className="text-sm font-normal text-gray-500">(5 days)</span></h3>
                 <div className="bg-white p-4 rounded-xl shadow-md border border-blue-100 inline-block text-left">
                   <p className="text-gray-700 text-sm mb-3">
-                    We set up and configure our Arabic AI technology stack and integrate with your existing systems while training our human team on your specific offering.
+                    We set up and configure our Arabic AI agent and integrate with your existing workflow while training our human team on your specific offering.
                   </p>
                   <div className="space-y-2">
                     <div className="flex items-start">
@@ -102,7 +102,7 @@ export const ProcessSteps = () => {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                       </div>
-                      <span className="text-sm text-gray-700">CRM/system integration</span>
+                      <span className="text-sm text-gray-700">Workflow integration</span>
                     </div>
                     <div className="flex items-start">
                       <div className="flex-shrink-0">
@@ -115,7 +115,7 @@ export const ProcessSteps = () => {
                   </div>
                   <div className="mt-3 p-2 bg-blue-50 rounded-lg text-sm">
                     <p className="font-medium text-blue-800">Deliverables:</p>
-                    <p className="text-gray-700">Fully configured tech stack, integration documentation, and dashboard access</p>
+                    <p className="text-gray-700">Overview of preparedness and readiness and report dashboard for outreach</p>
                   </div>
                 </div>
               </div>
@@ -182,7 +182,7 @@ export const ProcessSteps = () => {
               </div>
               
               <div className="md:w-1/2 md:pl-12 order-3 mt-4 md:mt-0 pl-14 md:pl-12">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Deal Facilitation <span className="text-sm font-normal text-gray-500">(2-4 months)</span></h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Deal Facilitation <span className="text-sm font-normal text-gray-500">(2-3 months)</span></h3>
                 <div className="bg-white p-4 rounded-xl shadow-md border border-amber-100 inline-block text-left">
                   <p className="text-gray-700 text-sm mb-3">
                     We actively support negotiations, manage documentation, navigate regulatory requirements, and help close your first deals in the region.

@@ -171,7 +171,7 @@ export const HowItWorks = () => {
                     </svg>
                   </div>
                   <div>
-                    <span className="font-medium">CRM Integration:</span> Direct integration with major CRMs available for Enterprise plans; data exports for all plans
+                    <span className="font-medium">CRM Integration:</span> Direct integration selected CRMs available for Enterprise plans.
                   </div>
                 </li>
                 <li className="flex items-start">
