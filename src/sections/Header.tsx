@@ -28,9 +28,9 @@ export const HeaderComponent = () => {
 
    // Close dropdowns when clicking outside - MODIFY THIS
    useEffect(() => {
-     const handleClickOutside = (event) => {
+     const handleClickOutside = (event: MouseEvent) => {
        // Only close if clicking outside of the dropdown element
-       if (industriesRef.current && !industriesRef.current.contains(event.target)) {
+       if (industriesRef.current && !industriesRef.current.contains(event.target as Node)) {
          setIndustriesOpen(false);
        }
      };
