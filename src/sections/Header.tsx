@@ -2,7 +2,7 @@
 
 import ArrowRight from '@/assets/arrow-right.svg';
 import MenuIcon from '@/assets/menu.svg';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, RefObject } from 'react';
 import { usePathname } from 'next/navigation';
 
 export const HeaderComponent = () => {
@@ -12,7 +12,7 @@ export const HeaderComponent = () => {
    const pathname = usePathname();
    const isMiddleEastPage = pathname === '/middle-east';
    
-   const industriesRef = useRef(null);
+   const industriesRef = useRef<HTMLDivElement>(null);
    
    const toggleMobileMenu = () => {
      setMobileMenuOpen(!mobileMenuOpen);
