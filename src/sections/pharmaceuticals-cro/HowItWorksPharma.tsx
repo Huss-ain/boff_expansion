@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 export const HowItWorksPharma = () => {
-  const [activeStep, setActiveStep] = useState(null);
+  const [activeStep, setActiveStep] = useState<number | null>(null);
   
   const steps = [
     {
