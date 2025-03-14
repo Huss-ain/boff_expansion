@@ -1,6 +1,13 @@
 "use client";
 import React, { useState } from 'react';
 
+// Add this interface above the ExpandableCard component
+interface ExpandableCardProps {
+  title: string;
+  color: string;
+  content: string;
+}
+
 export const RecruitmentShowcase = () => {
   // Simplified tabs - just one option for the conversation example
   const [activeTab, setActiveTab] = useState('conversation');
@@ -1064,7 +1071,7 @@ export const RecruitmentShowcase = () => {
 };
 
 {/* ExpandableCard component - REFINED ENTERPRISE STYLE */}
-const ExpandableCard = ({ title, color, content }) => {
+const ExpandableCard = ({ title, color, content }: ExpandableCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   
   // Map color string to actual color classes - REFINED SUBTLER PALETTE
