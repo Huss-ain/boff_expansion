@@ -2,17 +2,44 @@
 
 import ArrowRight from '@/assets/arrow-right.svg';
 import MenuIcon from '@/assets/menu.svg';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 
 export const HeaderComponent = () => {
    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+   const [industriesOpen, setIndustriesOpen] = useState(false);
+   const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
    const pathname = usePathname();
    const isMiddleEastPage = pathname === '/middle-east';
+   
+   const industriesRef = useRef(null);
    
    const toggleMobileMenu = () => {
      setMobileMenuOpen(!mobileMenuOpen);
    };
+
+   const toggleIndustries = () => {
+     setIndustriesOpen(!industriesOpen);
+   };
+
+   const toggleMobileIndustries = () => {
+     setMobileIndustriesOpen(!mobileIndustriesOpen);
+   };
+
+   // Close dropdowns when clicking outside - MODIFY THIS
+   useEffect(() => {
+     const handleClickOutside = (event) => {
+       // Only close if clicking outside of the dropdown element
+       if (industriesRef.current && !industriesRef.current.contains(event.target)) {
+         setIndustriesOpen(false);
+       }
+     };
+     
+     document.addEventListener('click', handleClickOutside);
+     return () => {
+       document.removeEventListener('click', handleClickOutside);
+     };
+   }, []);
 
    // Prefix for navigation links - if on middle-east page, link back to home page
    const linkPrefix = isMiddleEastPage ? '/' : '';
@@ -127,12 +154,42 @@ export const HeaderComponent = () => {
               
               {/* Desktop navigation */}
               <nav className="hidden md:flex gap-6 items-center">
-                <a href={`${linkPrefix}#product`} className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Product</a>
-                <a href={`${linkPrefix}#features`} className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Features</a>
-                <a href={`${linkPrefix}#process`} className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">How it works</a>
-                <a href={`${linkPrefix}#testimonials`} className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Testimonials</a>
-                <a href={`${linkPrefix}#pricing`} className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Pricing</a>
+                <a href="/" className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Boff</a>
+                
+                {/* Industries dropdown */}
+                <div className="relative" ref={industriesRef}>
+                  <button 
+                    className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors flex items-center gap-1"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleIndustries();
+                      console.log("Industries dropdown clicked, state:", !industriesOpen);
+                    }}
+                  >
+                    Industries
+                    <svg className={`w-4 h-4 ml-1 transition-transform ${industriesOpen ? 'rotate-180' : ''}`} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                  
+                  {/* Force the dropdown to be visible initially for testing */}
+                  <div className={`absolute z-10 mt-2 w-72 bg-white rounded-lg shadow-lg border border-gray-100 py-2 ${industriesOpen ? 'block' : 'hidden'}`}>
+                    <a 
+                      href={`${linkPrefix}/Industries/pharmaceuticals-cro`} 
+                      className="block px-4 py-2 text-base text-gray-900 hover:bg-purple-50 hover:text-purple-700"
+                      onClick={() => {
+                        console.log("Pharmaceuticals link clicked");
+                        setIndustriesOpen(false);
+                      }}
+                    >
+                      Pharmaceuticals & CRO's
+                    </a>
+                    {/* Additional industry items can be added here */}
+                  </div>
+                </div>
+                
                 <a href="/middle-east" className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Middle East</a>
+                <a href={`${linkPrefix}#pricing`} className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Pricing</a>
                 <a href="https://calendly.com/hussain-softbase/30min" target='_blank' rel='noopener noreferrer'>
                   <button className='bg-black text-white px-4 py-2 rounded-lg font-medium text-base md:text-lg tracking-tight inline-flex items-center justify-center'>Book a call</button>
                 </a>
@@ -145,32 +202,52 @@ export const HeaderComponent = () => {
           <div className={`md:hidden bg-white/95 shadow-lg ${mobileMenuOpen ? 'block' : 'hidden'}`}>
             <nav className="flex flex-col items-center gap-4 py-6">
               <a 
-                href={`${linkPrefix}#product`}
+                href="/"
                 className="text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Product
+                Boff
               </a>
+              
+              {/* Mobile Industries dropdown */}
+              <div className="w-full flex flex-col items-center">
+                <button 
+                  className="text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors py-2 flex items-center gap-1"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleMobileIndustries();
+                    console.log("Mobile Industries dropdown clicked, state:", !mobileIndustriesOpen);
+                  }}
+                >
+                  Industries
+                  <svg className={`w-4 h-4 ml-1 transition-transform ${mobileIndustriesOpen ? 'rotate-180' : ''}`} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+                
+                {mobileIndustriesOpen && (
+                  <div className="w-full bg-gray-50 mt-1 mb-2">
+                    <a 
+                      href={`${linkPrefix}/Industries/pharmaceuticals-cro`} 
+                      className="block text-center py-3 text-base text-gray-900 hover:bg-purple-50 hover:text-purple-700"
+                      onClick={() => {
+                        setMobileIndustriesOpen(false);
+                        setMobileMenuOpen(false);
+                      }}
+                    >
+                      Pharmaceuticals & CRO's
+                    </a>
+                    {/* Additional mobile industry items can be added here */}
+                  </div>
+                )}
+              </div>
+              
               <a 
-                href={`${linkPrefix}#features`}
+                href="/middle-east" 
                 className="text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Features
-              </a>
-              <a 
-                href={`${linkPrefix}#process`}
-                className="text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                How it works
-              </a>
-              <a 
-                href={`${linkPrefix}#testimonials`}
-                className="text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Testimonials
+                Middle East
               </a>
               <a 
                 href={`${linkPrefix}#pricing`}
@@ -178,13 +255,6 @@ export const HeaderComponent = () => {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Pricing
-              </a>
-              <a 
-                href="/middle-east" 
-                className="text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Middle East
               </a>
               <a 
                 href="https://calendly.com/hussain-softbase/30min" 
