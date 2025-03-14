@@ -1,10 +1,13 @@
 "use client";
 import React, { useState } from 'react';
 
+// Add this type definition to specify allowed color values
+type CardColor = 'blue' | 'purple' | 'green' | 'orange';
+
 // Add this interface above the ExpandableCard component
 interface ExpandableCardProps {
   title: string;
-  color: string;
+  color: CardColor;
   content: string;
 }
 
