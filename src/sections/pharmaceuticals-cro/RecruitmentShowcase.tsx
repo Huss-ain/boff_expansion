@@ -866,7 +866,7 @@ export const RecruitmentShowcase = () => {
                         <p className="mb-2">Regarding the cerebral microbleeds (CMBs), it depends on their number and location. The exclusion criteria specify:</p>
                         <ul className="list-disc pl-5 mb-2 text-sm text-gray-700">
                           <li>More than 4 microbleeds (≤10 mm) would be exclusionary</li>
-                          <li>Any microbleed >10 mm would exclude participation</li>
+                          <li>Any microbleed {'>'}10 mm would exclude participation</li>
                           <li>Location in the brainstem would also be exclusionary</li>
                         </ul>
                         <p className="mb-2">Would you be able to provide more details about the number and location of the microbleeds from the MRI report?</p>
