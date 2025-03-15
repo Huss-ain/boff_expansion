@@ -138,7 +138,7 @@ export const HeaderComponent = () => {
                     Boff AI
                   </h1>
                   <span className="text-xs sm:text-sm text-purple-700/90 font-medium leading-tight tracking-wide">
-                    Empathetic outreach
+                    Specialist outreach
                   </span>
                 </div>
               </a>

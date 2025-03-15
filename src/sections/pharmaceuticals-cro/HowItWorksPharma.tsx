@@ -184,7 +184,7 @@ export const HowItWorksPharma = () => {
                     <div className="text-4xl font-bold mb-1 relative inline-block">
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4A90E2] to-[#9B59B6] transition-all duration-300 group-hover:scale-110 inline-block">50%</span>
                     </div>
-                    <p className="text-[#3E3232]">Faster recruitment</p>
+                    <p className="text-[#3E3232]">Potential time savings</p>
                   </div>
                 </div>
               </div>

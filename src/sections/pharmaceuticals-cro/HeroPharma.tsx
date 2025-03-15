@@ -10,10 +10,10 @@ export const HeroPharma = () => {
       <div className="w-full flex justify-center">
         <div className='text-center w-full max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 pt-12 pb-12 md:pt-20 md:pb-20'>
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-bold tracking-tighter text-shine mt-6 leading-tight w-full">
-            Cut patient recruitment time by 50% with active empathetic outreach
+            Cut patient recruitment time with active clinical outreach
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-[#3E3232] tracking-tight mt-6 md:mt-8 mx-auto max-w-[900px]">
-            Empathetic outreach to physicians, consultants, PIs, community groups, and hospitals to accelerate your clinical trial recruitment while maintaining the highest professional standards.
+            Patient recruitment outreach to physicians, consultants, PIs, community groups, and hospitals to accelerate your clinical trial recruitment while maintaining the highest professional standards.
           </p>
           <div className="flex flex-wrap gap-4 items-center mt-8 md:mt-10 justify-center">
             <a href="https://calendly.com/hussain-softbase/30min" target='_blank' rel="noopener noreferrer">

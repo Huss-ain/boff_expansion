@@ -758,7 +758,7 @@ export const RecruitmentShowcase = () => {
         {/* Key message about 50% reduction */}
         <div className="max-w-3xl mx-auto text-center mb-12">
           <p className="text-lg md:text-xl text-gray-800">
-            We proactively engage physicians worldwide in their native languages, based on precise protocol matching, cutting recruitment timelines by up to <span className="font-bold text-blue-700">50%</span>.
+            We proactively engage physicians worldwide in their native languages, based on precise protocol matching, cutting recruitment timelines by up to half.
           </p>
         </div>
         

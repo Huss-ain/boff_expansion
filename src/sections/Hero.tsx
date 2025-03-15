@@ -10,7 +10,7 @@ export const Hero = () => {
       <div className="w-full flex justify-center">
         <div className='text-center w-full max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 pt-12 pb-12 md:pt-20 md:pb-20'>
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-bold tracking-tighter text-shine mt-6 leading-tight w-full">
-            We'll find and keep your customers for you all year round.
+            We'll find and keep your clients for you all year round.
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-[#3E3232] tracking-tight mt-6 md:mt-8 mx-auto max-w-[900px]">
             Focus on running your business while Boff AI finds your potential customers and keeps them engaged for you all year round.
