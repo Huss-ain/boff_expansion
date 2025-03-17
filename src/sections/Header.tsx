@@ -172,7 +172,6 @@ export const HeaderComponent = () => {
                     </svg>
                   </button>
                   
-                  {/* Force the dropdown to be visible initially for testing */}
                   <div className={`absolute z-10 mt-2 w-72 bg-white rounded-lg shadow-lg border border-gray-100 py-2 ${industriesOpen ? 'block' : 'hidden'}`}>
                     <a 
                       href={`${linkPrefix}/Industries/pharmaceuticals-cro`} 
@@ -183,6 +182,16 @@ export const HeaderComponent = () => {
                       }}
                     >
                       Pharmaceuticals & CRO's
+                    </a>
+                    <a 
+                      href={`${linkPrefix}/Industries/accounting`} 
+                      className="block px-4 py-2 text-base text-gray-900 hover:bg-purple-50 hover:text-purple-700"
+                      onClick={() => {
+                        console.log("Accounting link clicked");
+                        setIndustriesOpen(false);
+                      }}
+                    >
+                      Accounting
                     </a>
                     {/* Additional industry items can be added here */}
                   </div>
@@ -236,6 +245,16 @@ export const HeaderComponent = () => {
                       }}
                     >
                       Pharmaceuticals & CRO's
+                    </a>
+                    <a 
+                      href={`${linkPrefix}/Industries/accounting`} 
+                      className="block text-center py-3 text-base text-gray-900 hover:bg-purple-50 hover:text-purple-700"
+                      onClick={() => {
+                        setMobileIndustriesOpen(false);
+                        setMobileMenuOpen(false);
+                      }}
+                    >
+                      Accounting
                     </a>
                     {/* Additional mobile industry items can be added here */}
                   </div>
