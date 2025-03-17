@@ -98,7 +98,9 @@ export const AccountingTestimonials = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <div 
-              ref={(el: HTMLDivElement | null) => testimonialRefs.current[index] = el}
+              ref={(el: HTMLDivElement | null): void => {
+                testimonialRefs.current[index] = el;
+              }}
               key={index} 
               className={`bg-white rounded-2xl p-8 opacity-0 transition-all duration-700 translate-y-8
                         delay-${index * 150} shadow-[0_5px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_40px_rgba(0,0,0,0.08)]
