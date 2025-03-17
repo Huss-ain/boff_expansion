@@ -10,8 +10,8 @@ interface Testimonial {
 
 export const AccountingTestimonials = () => {
   // References for scroll animations
-  const sectionRef = useRef(null);
-  const testimonialRefs = useRef([]);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const testimonialRefs = useRef<(HTMLDivElement | null)[]>([]);
   
   // Reset testimonial refs array when testimonials change
   useEffect(() => {
@@ -26,8 +26,8 @@ export const AccountingTestimonials = () => {
       threshold: 0.2,
     };
 
-    const handleIntersect = (entries, observer) => {
-      entries.forEach(entry => {
+    const handleIntersect = (entries: IntersectionObserverEntry[], observer: IntersectionObserver): void => {
+      entries.forEach((entry: IntersectionObserverEntry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate-in');
           observer.unobserve(entry.target);
@@ -98,7 +98,7 @@ export const AccountingTestimonials = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <div 
-              ref={el => testimonialRefs.current[index] = el}
+              ref={(el: HTMLDivElement | null) => testimonialRefs.current[index] = el}
               key={index} 
               className={`bg-white rounded-2xl p-8 opacity-0 transition-all duration-700 translate-y-8
                         delay-${index * 150} shadow-[0_5px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_40px_rgba(0,0,0,0.08)]
