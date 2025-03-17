@@ -1,9 +1,9 @@
 "use client";
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 export const OutreachShowcase = () => {
   // Generate deterministic data points for visualization
-  const generateDataPoints = (count) => {
+  const generateDataPoints = (count: number) => {
     return Array.from({ length: count }).map((_, i) => {
       // Use modulo and index-based calculations for deterministic values
       const x = 40 + ((i * 37) % 320); 
