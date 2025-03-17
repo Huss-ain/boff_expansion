@@ -6,9 +6,30 @@ interface CellHighlight {
   col: number;
   row: number;
   duration: number;
+  isMobile: boolean;
 }
 
 export const OutreachShowcase = () => {
+  // Track if we're on mobile for responsive grid
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // Check for mobile on mount and window resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Initial check
+    checkMobile();
+    
+    // Add resize listener
+    window.addEventListener('resize', checkMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
+  
   // Generate deterministic data points for visualization
   const generateDataPoints = (count: number) => {
     return Array.from({ length: count }).map((_, i) => {
@@ -25,7 +46,7 @@ export const OutreachShowcase = () => {
 
   const dataPoints = generateDataPoints(20);
   
-  // Add state for occasional cell highlights in the Excel grid - fix type
+  // Add state for occasional cell highlights in the Excel grid
   const [highlightedCells, setHighlightedCells] = useState<CellHighlight[]>([]);
   
   // Occasionally highlight random cells in the grid
@@ -36,11 +57,23 @@ export const OutreachShowcase = () => {
       const count = Math.floor(Math.random() * 5) + 3; // 3-7 highlights
       
       for (let i = 0; i < count; i++) {
-        newHighlights.push({
-          col: Math.floor(Math.random() * 12), // Fewer columns now
-          row: Math.floor(Math.random() * 60), // More rows
-          duration: Math.floor(Math.random() * 4) + 2, // 2-5 seconds
-        });
+        if (isMobile) {
+          // Mobile grid: more rows (30), fewer columns (15) - but with spacing that creates horizontal rectangles
+          newHighlights.push({
+            col: Math.floor(Math.random() * 15), // Fewer columns on mobile (15 wider columns)
+            row: Math.floor(Math.random() * 30), // More rows on mobile (30 shorter rows)
+            duration: Math.floor(Math.random() * 4) + 2, // 2-5 seconds
+            isMobile: true
+          });
+        } else {
+          // Desktop grid
+          newHighlights.push({
+            col: Math.floor(Math.random() * 12), // Fewer columns on desktop
+            row: Math.floor(Math.random() * 60), // More rows on desktop
+            duration: Math.floor(Math.random() * 4) + 2, // 2-5 seconds
+            isMobile: false
+          });
+        }
       }
       
       setHighlightedCells(newHighlights);
@@ -55,7 +88,7 @@ export const OutreachShowcase = () => {
     }, Math.floor(Math.random() * 4000) + 3000);
     
     return () => clearInterval(interval);
-  }, []);
+  }, [isMobile]);
   
   // Refs for scroll animations
   const section1Ref = useRef(null);
@@ -96,40 +129,72 @@ export const OutreachShowcase = () => {
 
   return (
     <section id="outreach-showcase" className="pt-0 pb-24 bg-gradient-to-b from-[#F0F4FF] to-[#FAFBFF] relative overflow-hidden">
-      {/* Excel-like grid background - adjusted for more visibility and horizontal rectangles */}
+      {/* Responsive Excel-like grid background */}
       <div className="absolute inset-0 w-full h-full pointer-events-none opacity-40">
-        {/* Vertical grid lines - fewer and more widely spaced */}
-        <div className="absolute inset-0">
-          {Array.from({ length: 12 }).map((_, i) => (
-            <div 
-              key={`v-${i}`} 
-              className="absolute top-0 bottom-0 w-[2px] bg-indigo-200"
-              style={{ left: `${(i + 1) * 8.33}%` }} // 12 columns (100/12 = 8.33%)
-            />
-          ))}
-        </div>
+        {/* Mobile grid (showing when isMobile is true) */}
+        {isMobile && (
+          <>
+            {/* FEWER vertical grid lines (15) to create WIDER cells horizontally */}
+            <div className="absolute inset-0">
+              {Array.from({ length: 15 }).map((_, i) => (
+                <div 
+                  key={`v-${i}`} 
+                  className="absolute top-0 bottom-0 w-[1px] bg-indigo-200"
+                  style={{ left: `${(i + 1) * 6.67}%` }} // 15 columns (100/15 = 6.67%) - WIDER columns
+                />
+              ))}
+            </div>
+            
+            {/* MORE horizontal grid lines (30) to create SHORTER cells vertically */}
+            <div className="absolute inset-0">
+              {Array.from({ length: 30 }).map((_, i) => (
+                <div 
+                  key={`h-${i}`} 
+                  className="absolute left-0 right-0 h-[1px] bg-indigo-200"
+                  style={{ top: `${(i + 1) * 3.33}%` }} // 30 rows (100/30 = 3.33%) - SHORTER rows
+                />
+              ))}
+            </div>
+          </>
+        )}
         
-        {/* Horizontal grid lines - more and closer together */}
-        <div className="absolute inset-0">
-          {Array.from({ length: 60 }).map((_, i) => (
-            <div 
-              key={`h-${i}`} 
-              className="absolute left-0 right-0 h-[2px] bg-indigo-200"
-              style={{ top: `${(i + 1) * 1.667}%` }} // 60 rows (100/60 = 1.667%)
-            />
-          ))}
-        </div>
+        {/* Desktop grid (showing when isMobile is false) */}
+        {!isMobile && (
+          <>
+            {/* Vertical grid lines - fewer and more widely spaced on desktop */}
+            <div className="absolute inset-0">
+              {Array.from({ length: 12 }).map((_, i) => (
+                <div 
+                  key={`v-${i}`} 
+                  className="absolute top-0 bottom-0 w-[2px] bg-indigo-200"
+                  style={{ left: `${(i + 1) * 8.33}%` }} // 12 columns (100/12 = 8.33%)
+                />
+              ))}
+            </div>
+            
+            {/* Horizontal grid lines - more and closer together on desktop */}
+            <div className="absolute inset-0">
+              {Array.from({ length: 60 }).map((_, i) => (
+                <div 
+                  key={`h-${i}`} 
+                  className="absolute left-0 right-0 h-[2px] bg-indigo-200"
+                  style={{ top: `${(i + 1) * 1.667}%` }} // 60 rows (100/60 = 1.667%)
+                />
+              ))}
+            </div>
+          </>
+        )}
         
-        {/* Highlighted cells - adjusted for new grid dimensions */}
+        {/* Cell highlights that animate - responsive to mobile or desktop grid */}
         {highlightedCells.map((cell, index) => (
           <div 
             key={`highlight-${index}`}
             className="absolute bg-indigo-100 opacity-60 transition-opacity"
             style={{ 
-              left: `${cell.col * 8.33}%`, 
-              top: `${cell.row * 1.667}%`,
-              width: '8.33%',
-              height: '1.667%',
+              left: `${cell.col * (cell.isMobile ? 6.67 : 8.33)}%`, 
+              top: `${cell.row * (cell.isMobile ? 3.33 : 1.667)}%`,
+              width: cell.isMobile ? '6.67%' : '8.33%',
+              height: cell.isMobile ? '3.33%' : '1.667%',
               animationName: 'cellHighlight',
               animationDuration: `${cell.duration}s`,
               animationFillMode: 'both'
@@ -139,50 +204,51 @@ export const OutreachShowcase = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Updated Introduction Header with the line but normal text color */}
+        {/* Introduction Header - improved responsive text sizing */}
         <div className="flex flex-col items-center mb-8">
-          <h2 className="text-3xl md:text-[42px] md:leading-[48px] font-bold tracking-tighter text-gray-900">
+          <h2 className="text-2xl sm:text-3xl md:text-[42px] md:leading-[48px] font-bold tracking-tighter text-gray-900 text-center">
             Sell your accounting services effortlessly
           </h2>
-          <div className="h-1.5 w-40 mt-3 bg-gradient-to-r from-indigo-600 to-purple-400 rounded-full"></div>
-          <p className="text-xl text-gray-700 mt-5 text-center max-w-4xl">
+          <div className="h-1.5 w-24 sm:w-40 mt-3 bg-gradient-to-r from-indigo-600 to-purple-400 rounded-full"></div>
+          <p className="text-lg sm:text-xl text-gray-700 mt-5 text-center max-w-4xl">
             Our three-step process transforms how accounting firms find and connect with new clients
           </p>
         </div>
         
         {/* Timeline indicators */}
-        <div className="max-w-4xl mx-auto relative mb-12 px-4">
+        <div className="max-w-4xl mx-auto relative mb-8 md:mb-12 px-4">
           <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-indigo-200 transform -translate-x-1/2"></div>
         </div>
         
-        {/* Step 1: AI Data Mining */}
-        <div ref={section1Ref} className="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-16 opacity-0 transition-all duration-1000 translate-y-8">
-          {/* Content for Step 1 */}
-          <div className="flex flex-col md:flex-row items-start gap-12">
+        {/* Step 1: AI Data Mining - Improved mobile layout */}
+        <div ref={section1Ref} className="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl p-6 sm:p-8 md:p-12 mb-8 md:mb-16 opacity-0 transition-all duration-1000 translate-y-8">
+          <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12">
             <div className="w-full md:w-1/2">
-              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 flex items-center">
-                <span className="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold text-xl mr-4 flex-shrink-0">1</span>
-                Intelligent Prospecting
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6 flex items-center">
+                <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold text-lg sm:text-xl mr-3 md:mr-4 flex-shrink-0">1</span>
+                <span className="leading-tight">Intelligent Prospecting</span>
               </h3>
-              <p className="text-xl text-gray-700 mb-8">
+              <p className="text-lg sm:text-xl text-gray-700 mb-6 md:mb-8">
                 Our AI scans through thousands of businesses and freelancers daily, identifying companies 
                 that match your ideal client profile based on real-time signals.
               </p>
-              <div className="bg-indigo-50 p-5 rounded-xl border-l-4 border-indigo-500">
+              <div className="bg-indigo-50 p-4 sm:p-5 rounded-xl border-l-4 border-indigo-500">
                 <div className="flex items-start">
-                  <div className="text-indigo-600 mr-4 mt-1">
-                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="text-indigo-600 mr-3 mt-1 flex-shrink-0">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <p className="text-lg text-indigo-900 font-medium">
+                  <p className="text-base sm:text-lg text-indigo-900 font-medium">
                     Identifies businesses showing signs they need accounting services
                   </p>
                 </div>
               </div>
             </div>
+            
+            {/* Keep the visualization, but make it responsive */}
             <div className="w-full md:w-1/2 flex justify-center pt-4">
-              <div className="relative w-full max-w-md aspect-square">
+              <div className="relative w-full max-w-sm md:max-w-md aspect-square">
                 {/* Data Mining Visualization with deterministic points */}
                 <svg className="w-full h-full" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
                   <defs>
