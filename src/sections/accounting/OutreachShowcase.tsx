@@ -1,6 +1,13 @@
 "use client";
 import React, { useEffect, useRef, useState } from 'react';
 
+// Define an interface for the cell highlight objects
+interface CellHighlight {
+  col: number;
+  row: number;
+  duration: number;
+}
+
 export const OutreachShowcase = () => {
   // Generate deterministic data points for visualization
   const generateDataPoints = (count: number) => {
@@ -18,14 +25,14 @@ export const OutreachShowcase = () => {
 
   const dataPoints = generateDataPoints(20);
   
-  // Add state for occasional cell highlights in the Excel grid
-  const [highlightedCells, setHighlightedCells] = React.useState([]);
+  // Add state for occasional cell highlights in the Excel grid - fix type
+  const [highlightedCells, setHighlightedCells] = useState<CellHighlight[]>([]);
   
   // Occasionally highlight random cells in the grid
   useEffect(() => {
     // Generate some random cell positions to highlight
     const generateRandomHighlights = () => {
-      const newHighlights = [];
+      const newHighlights: CellHighlight[] = [];
       const count = Math.floor(Math.random() * 5) + 3; // 3-7 highlights
       
       for (let i = 0; i < count; i++) {
