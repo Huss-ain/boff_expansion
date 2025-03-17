@@ -71,8 +71,8 @@ export const OutreachShowcase = () => {
       threshold: 0.2,
     };
     
-    const handleIntersect = (entries, observer) => {
-      entries.forEach(entry => {
+    const handleIntersect = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+      entries.forEach((entry: IntersectionObserverEntry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate-in');
         }
