@@ -2,10 +2,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 export const AccountingCTA = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
-  const sectionRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
   
-  const toggleFaq = (index) => {
+  const toggleFaq = (index: number): void => {
     setActiveIndex(activeIndex === index ? null : index);
   };
   
@@ -17,7 +17,7 @@ export const AccountingCTA = () => {
       threshold: 0.1,
     };
 
-    const handleIntersect = (entries, observer) => {
+    const handleIntersect = (entries: IntersectionObserverEntry[], observer: IntersectionObserver): void => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate-in');
