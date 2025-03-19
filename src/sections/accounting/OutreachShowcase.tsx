@@ -479,7 +479,7 @@ export const OutreachShowcase = () => {
                     </svg>
                   </div>
                   <p className="text-lg text-green-900 font-medium">
-                    15% conversion rate from introduction to paying client
+                    31% conversion rate from introduction to paying client
                   </p>
                 </div>
               </div>
