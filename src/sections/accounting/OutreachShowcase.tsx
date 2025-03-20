@@ -512,7 +512,7 @@ export const OutreachShowcase = () => {
                   <div className="text-gray-700 space-y-4">
                     <p className="text-lg">Hey Jeff,</p>
                     <p className="text-lg">
-                      Introudcing you to Kostas who is pushing the boundaries in dental imaging in his startup D2. He's made a number of breakthroughs that have significantly imporved the accuracy of detecting issues like cavities and bone loss. I thought it may be a good fit for RD assessments and perhaps a full application.
+                      Introudcing you to Kostas who is pushing the boundaries in dental imaging in his startup D2. He's made a number of breakthroughs that have significantly improved the accuracy of detecting issues like cavities and bone loss. I thought it may be a good fit for RD assessments and perhaps a full application.
                     </p>
                     <p className="text-lg">Cheers,<br/>Alex</p>
                   </div>
