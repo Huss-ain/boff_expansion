@@ -200,7 +200,9 @@ export const HeaderComponent = () => {
                 <a href="/middle-east" className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Middle East</a>
                 <a href={`${linkPrefix}#pricing`} className="text-base md:text-lg text-gray-900 font-medium tracking-tight hover:text-purple-700 transition-colors">Pricing</a>
                 <a href="https://calendly.com/hussain-softbase/30min" target='_blank' rel='noopener noreferrer'>
-                  <button className='bg-black text-white px-4 py-2 rounded-lg font-medium text-base md:text-lg tracking-tight inline-flex items-center justify-center'>Book a call</button>
+                  <button className='bg-black text-white px-4 py-2 rounded-lg font-medium text-base md:text-lg tracking-tight inline-flex items-center justify-center'>
+                    Coming Soon
+                  </button>
                 </a>
               </nav>
               </div>
@@ -283,7 +285,7 @@ export const HeaderComponent = () => {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <button className='bg-black text-white px-6 py-3 rounded-lg font-medium text-lg tracking-tight inline-flex items-center justify-center'>
-                  Book a call
+                  Coming Soon
                 </button>
               </a>
             </nav>

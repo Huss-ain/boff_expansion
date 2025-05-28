@@ -52,10 +52,12 @@ export const Footer = () => {
         {/* Row with navigation and CTA button */}
         <div className="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0">
           {/* CTA Button */}
-          <a href="" 
-             className="bg-white text-purple-800 hover:bg-purple-100 transition-colors px-6 py-3 rounded-lg font-medium md:mr-10">
-            Book a call
-          </a>
+          <button 
+            className="bg-white text-purple-800 hover:bg-purple-100 transition-colors px-6 py-3 rounded-lg font-medium md:mr-10"
+            disabled
+          >
+            Coming Soon
+          </button>
           
           {/* Horizontal Navigation */}
           <nav className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3">

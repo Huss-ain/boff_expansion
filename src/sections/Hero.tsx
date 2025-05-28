@@ -16,7 +16,7 @@ export const Hero = () => {
             Focus on running your business while Boff AI finds your potential customers and keeps them engaged for you all year round.
           </p>
           <div className="flex flex-wrap gap-4 items-center mt-8 md:mt-10 justify-center">
-            <a href="https://calendly.com/hussain-softbase/30min" target='_blank' rel="noopener noreferrer">
+            <a href="https://calendly.com/" target='_blank' rel="noopener noreferrer">
               <button className="btn btn-primary text-base md:text-lg">Book a call</button>
             </a>
             <a href="#product">
