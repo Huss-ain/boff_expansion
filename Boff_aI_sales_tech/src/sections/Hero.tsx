@@ -17,7 +17,7 @@ export const Hero = () => {
           </p>
           <div className="flex flex-wrap gap-4 items-center mt-8 md:mt-10 justify-center">
             <button 
-              className="btn btn-primary text-base md:text-lg cursor-not-allowed opacity-50" 
+              className="btn btn-primary text-base md:text-lg opacity-50" 
               disabled
             >
               Book a call

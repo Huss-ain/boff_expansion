@@ -15,7 +15,7 @@ export const HeroME = () => {
             Tailored market entry strategies combining Arabic AI with human relationship building – without the overhead of local offices.
           </p>
           <div className="flex flex-wrap gap-4 items-center mt-8 md:mt-10 justify-center">
-            <a href="https://calendly.com/hussain-softbase/30min" target='_blank' rel="noopener noreferrer">
+            <a href="" target='_blank' rel="noopener noreferrer">
               <button className="btn btn-primary text-base md:text-lg">Schedule Strategy Session</button>
             </a>
             <a href="#map-section">

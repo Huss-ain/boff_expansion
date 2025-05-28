@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import arabWomanImage from '@/assets/arabwoman 2.jpg';  // Direct import from assets
+import arabWomanImage from '@/assets/arabwoman 2.jpg';
 
 export const CTASection = () => {
   return (
@@ -16,7 +16,7 @@ export const CTASection = () => {
               </p>
               <div className="pt-2">
                 <button 
-                  className="btn btn-primary text-base cursor-not-allowed opacity-50"
+                  className="btn btn-primary text-base opacity-50"
                   disabled
                 >
                   Schedule Strategy Session
@@ -33,7 +33,7 @@ export const CTASection = () => {
                     sizes="(max-width: 768px) 100vw, 40vw"
                     style={{ 
                       objectFit: 'cover', 
-                      objectPosition: 'center 15%'  // Adjusted to show more of the top of the image
+                      objectPosition: 'center 15%'
                     }}
                     priority
                     className="rounded-tl-xl rounded-tr-xl md:rounded-tl-none md:rounded-tr-xl md:rounded-br-xl" 
