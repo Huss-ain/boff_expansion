@@ -99,7 +99,7 @@ export const Team = () => {
         "Email support"
       ],
       ctaText: "Get started",
-      ctaLink: "https://calendly.com/hussain-softbase/30min"
+      ctaLink: "https://calendly.com/n"
     },
     {
       name: "Small Teams",
@@ -116,7 +116,7 @@ export const Team = () => {
       ],
       isPopular: true,
       ctaText: "Get started",
-      ctaLink: "https://calendly.com/hussain-softbase/30min"
+      ctaLink: "https://calendly.com/"
     },
     {
       name: "Enterprise",
@@ -133,7 +133,7 @@ export const Team = () => {
         "Quarterly strategy reviews"
       ],
       ctaText: "Contact sales",
-      ctaLink: "https://calendly.com/hussain-softbase/30min"
+      ctaLink: "https://calendly.com/"
     }
   ];
 
@@ -168,7 +168,7 @@ export const Team = () => {
           <p className="text-lg">
             All plans include our empathetic outreach approach and lead qualification.
             <br/>We handle the entire communication process and introduce you to prospects when they're ready.
-            <br />Need a custom solution? <a href="https://calendly.com/hussain-softbase/30min" className="text-purple-600 font-medium">Contact our sales team</a>.
+            <br />Need a custom solution? <a href="https://calendly.com/" className="text-purple-600 font-medium">Contact our sales team</a>.
           </p>
         </div>
       </div>
