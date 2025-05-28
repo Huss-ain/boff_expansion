@@ -15,11 +15,12 @@ export const CTASection = () => {
                 Schedule a strategy call to discuss your specific market entry needs. Our Arabic AI + human relationship approach can accelerate your expansion without the overhead of local offices.
               </p>
               <div className="pt-2">
-                <a href="https://calendly.com/hussain-softbase/30min" target="_blank" rel="noopener noreferrer">
-                  <button className="btn btn-primary text-base">
-                    Schedule Strategy Session
-                  </button>
-                </a>
+                <button 
+                  className="btn btn-primary text-base cursor-not-allowed opacity-50"
+                  disabled
+                >
+                  Schedule Strategy Session
+                </button>
               </div>
             </div>
             <div className="md:w-2/5 relative order-1 md:order-2">
