@@ -278,7 +278,7 @@ export const HeaderComponent = () => {
                 Pricing
               </a>
               <a 
-                href="https://calendly.com/hussain-softbase/30min" 
+                href="https://calendly.com/" 
                 target='_blank' 
                 rel='noopener noreferrer'
                 className="mt-2"
